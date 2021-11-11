@@ -1,11 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 import {
-  App
-} from './components';
+  BrowserRouter as Router
+} from "react-router-dom";
+import {Navbar} from "./components";
+
+const App = () => {
+
+  return (
+<div id="app">
+<Navbar/>
+
+</div>
+  );
+}
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById("root")
 );
