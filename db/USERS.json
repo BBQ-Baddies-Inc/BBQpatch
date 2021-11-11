@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "first_name": "Nicholle",
+    "last_name": "Ysson",
+    "email": "nysson0@shutterfly.com",
+    "address": "7249 High Crossing Pass",
+    "username": "nysson0",
+    "password": "password",
+    "admin": false
+  },
+  {
+    "id": 2,
+    "first_name": "Angelina",
+    "last_name": "Ierland",
+    "email": "aierland1@issuu.com",
+    "address": "2385 Morningstar Place",
+    "username": "aierland1",
+    "password": "password",
+    "admin": false
+  },
+  {
+    "id": 3,
+    "first_name": "Paxon",
+    "last_name": "Cockerill",
+    "email": "pcockerill2@webmd.com",
+    "address": "3469 Grover Road",
+    "username": "pcockerill2",
+    "password": "password",
+    "admin": true
+  },
+  {
+    "id": 4,
+    "first_name": "Omero",
+    "last_name": "Pryor",
+    "email": "opryor3@soundcloud.com",
+    "address": "2 Mitchell Road",
+    "username": "opryor3",
+    "password": "password",
+    "admin": false
+  },
+  {
+    "id": 5,
+    "first_name": "Jard",
+    "last_name": "Kauffman",
+    "email": "jkauffman4@google.ru",
+    "address": "24 Kennedy Crossing",
+    "username": "jkauffman4",
+    "password": "password",
+    "admin": false
+  },
+  {
+    "id": 6,
+    "first_name": "Laure",
+    "last_name": "Jephcote",
+    "email": "ljephcote5@phpbb.com",
+    "address": "9734 Kingsford Road",
+    "username": "ljephcote5",
+    "password": "password",
+    "admin": true
+  },
+  {
+    "id": 7,
+    "first_name": "Isidor",
+    "last_name": "Morrel",
+    "email": "imorrel6@google.de",
+    "address": "617 Roxbury Parkway",
+    "username": "imorrel6",
+    "password": "password",
+    "admin": false
+  },
+  {
+    "id": 8,
+    "first_name": "Tristan",
+    "last_name": "Yon",
+    "email": "tyon7@nationalgeographic.com",
+    "address": "94907 Dwight Circle",
+    "username": "tyon7",
+    "password": "password",
+    "admin": true
+  },
+  {
+    "id": 9,
+    "first_name": "Ashley",
+    "last_name": "Barreau",
+    "email": "abarreau8@walmart.com",
+    "address": "932 Pleasure Way",
+    "username": "abarreau8",
+    "password": "password",
+    "admin": true
+  },
+  {
+    "id": 10,
+    "first_name": "Hannis",
+    "last_name": "Woolcocks",
+    "email": "hwoolcocks9@google.com.hk",
+    "address": "329 Evergreen Street",
+    "username": "hwoolcocks9",
+    "password": "password",
+    "admin": false
+  }
+]
