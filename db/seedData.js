@@ -1,13 +1,16 @@
-const client = require ('./client')
+const {client} = require ('./client')
+const userData = require ('./USERS.json')
+
+const {
+  createUser,
+} = require('./')
 
 async function dropTables() {
     try {
       console.log('Dropping All Tables...');
       // drop all tables, in the correct order
       await client.query(`
-      DROP TABLE IF EXISTS routineActivities;
-      DROP TABLE IF EXISTS routines;
-      DROP TABLE IF EXISTS activities;
+   
       DROP TABLE IF EXISTS users;
     `);
   console.log('Finishing dropping tables!')
@@ -26,32 +29,15 @@ async function dropTables() {
     CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username VARCHAR(255) UNIQUE NOT NULL,
+  first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	email VARCHAR(255),
+	address VARCHAR(255),
+	admin BOOLEAN DEFAULT FALSE,
   password VARCHAR(255) NOT NULL
       );
   
-      CREATE TABLE activities(
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) UNIQUE NOT NULL,
-  description TEXT NOT NULL
-      );
-  
-      CREATE TABLE routines(
-  id SERIAL PRIMARY KEY,
-  "creatorId" INTEGER REFERENCES users(id),
-  "isPublic" BOOLEAN DEFAULT false,
-  name VARCHAR(255) UNIQUE NOT NULL,
-  goal TEXT NOT NULL
-      );
-  
-      CREATE TABLE routineActivities(
-  id SERIAL PRIMARY KEY,
-  "routineId" INTEGER REFERENCES routines(id),
-  "activityId" INTEGER REFERENCES activities(id),
-  duration INTEGER,
-  count INTEGER,
-  UNIQUE ("routineId", "activityId")
-  
-      );
+
       `);
   
     } catch (error) {
@@ -66,12 +52,8 @@ async function dropTables() {
     console.log('Starting to create users...');
     try {
   
-      const usersToCreate = [
-        { username: 'luke', password: 'luke99' },
-        { username: 'eric', password: 'eric123' },
-        { username: 'brian', password: 'brian123' },
-      ]
-      const users = await Promise.all(usersToCreate.map(createUser));
+       
+      const users = await Promise.all(userData.map(createUser));
   
       console.log('Users created:');
       console.log(users);
@@ -80,4 +62,21 @@ async function dropTables() {
       console.error('Error creating users!');
       throw error;
     }
+  }
+
+  async function rebuildDB() {
+    try {
+      client.connect();
+      await dropTables();
+      await createTables();
+      await createInitialUsers();
+    } catch (error) {
+      console.log("Error during rebuildDB");
+      throw error;
+    }
+  }
+  
+  module.exports = {
+  
+    rebuildDB,
   }
