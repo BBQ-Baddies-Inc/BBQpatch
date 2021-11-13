@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const BASE = "postgres://localhost:5432/bbqbaddies";
 
 export async function registerUser(username, password) {
