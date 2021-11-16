@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-export const BASE = "api/users";
+export const BASE = "http://localhost:5000/api/users"; //we will have to adjust to heroku......fitnesstrackerfront
 
 export async function registerUser(username, password) {
   try {
-    const response = await axios.post(`${BASE}/register`, {
+    const {data} = await axios.post(`${BASE}/register`, {
       username,
       password,
     });
-
-    return response.data;
+    console.log(data)
+    return data;
   } catch (error) {
     throw error;
   }

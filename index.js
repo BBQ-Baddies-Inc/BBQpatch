@@ -2,9 +2,15 @@
 const express = require('express');
 const server = express();
 
+//cors
+const cors = require('cors');
+server.use(cors());
+
 // create logs for everything
 const morgan = require('morgan');
 server.use(morgan('dev'));
+
+
 
 // handle application/json requests
 server.use(express.json());
@@ -14,7 +20,7 @@ const path = require('path');
 server.use(express.static(path.join(__dirname, 'build')));
 
 // here's our API
-server.use('/api', require('./routes'));
+server.use('/api', require('./api'));
 
 // by default serve up the react app if we don't recognize the route
 server.use((req, res, next) => {
