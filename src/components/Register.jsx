@@ -4,13 +4,12 @@ import { registerUser } from "../api/users";
 import { storeToken } from "../auth";
 import { storeUserName } from "../auth";
 export default function Register(props) {
-    const { userName, isLoggedIn, setUserName, setIsLoggedIn } = props;
+    const { userName, setUserName, setIsLoggedIn } = props;
   const [password, setPassword] = useState("");
 
   const history = useHistory();
   return (
     <form
-      className="login-form"
       className="login-form"
       onSubmit={async (event) => {
         event.preventDefault();

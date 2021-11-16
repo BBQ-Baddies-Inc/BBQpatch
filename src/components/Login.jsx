@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { loginUser } from "../api/users";
-import { storeToken, getToken, storeUserName } from "../auth";
+import { storeToken, storeUserName } from "../auth";
 import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
@@ -10,12 +10,7 @@ export default function Login(props) {
 
   const history = useHistory();
 
-  useEffect(() => {
-    const TOKEN = getToken();
-    if (TOKEN) {
-        setIsLoggedIn(true);
-      }
-  }, []);
+  
   
   if (isLoggedIn === false) {
     return (
@@ -26,7 +21,7 @@ export default function Login(props) {
 
           try {
             const results = await loginUser(userName, password);
-            console.log(results.message, "!!!!!!");
+            console.log(results, "!!!!!!");
             storeToken(results.token);
             storeUserName(userName);
             setIsLoggedIn(true);
