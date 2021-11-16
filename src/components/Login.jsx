@@ -12,12 +12,12 @@ export default function Login(props) {
 
   useEffect(() => {
     const TOKEN = getToken();
-    if (TOKEN) {
-        setIsLoggedIn(true);
-      }
-  }, []);
+    if(TOKEN){
+        setIsLoggedIn(true)
+    }
+  }, [setIsLoggedIn]);
   
-  if (isLoggedIn === false) {
+  if (!isLoggedIn) {
     return (
       <form
         className="login-form"
@@ -29,7 +29,7 @@ export default function Login(props) {
             console.log(results.message, "!!!!!!");
             storeToken(results.token);
             storeUserName(userName);
-            setIsLoggedIn(true);
+            
             setPassword("");
 
             history.push("/myroutines");
