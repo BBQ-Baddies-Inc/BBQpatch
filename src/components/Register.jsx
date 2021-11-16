@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { registerUser } from "../api/users";
-import { storeToken } from "../auth";
-import { storeUserName } from "../auth";
+import { storeToken, storeUserName } from "../auth";
+
 export default function Register(props) {
-    const { userName, setUserName, setIsLoggedIn } = props;
+    const { userName, setIsLoggedIn, setUserName } = props;
   const [password, setPassword] = useState("");
 
-  const history = useHistory();
   return (
     <form
       className="login-form"
@@ -15,6 +13,7 @@ export default function Register(props) {
         event.preventDefault();
 
         try {
+          console.log(userName, password, "passed in data_______")
           const results = await registerUser(userName, password);
           console.log(results, "!!!!!!!!!!");
           storeToken(results.token);
@@ -23,7 +22,7 @@ export default function Register(props) {
           storeUserName(userName)
           setUserName("");
           setPassword("");
-          history.push("/routines");
+          // history.push("/routines");
           alert("You are registered!");
         } catch (error) {
           console.log(error);
@@ -49,6 +48,7 @@ export default function Register(props) {
               required
               value={userName}
               onChange={(event) => {
+                console.log(event.target.value, "username")
                 setUserName(event.target.value);
               }}
             />
@@ -75,6 +75,7 @@ export default function Register(props) {
             required
             value={password}
             onChange={(event) => {
+              console.log(event.target.value, "password")
               setPassword(event.target.value);
             }}
           />

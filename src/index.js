@@ -30,7 +30,7 @@ useEffect(() => {
           />
         </Route>
         <Route path="/register">
-          <Register setIsLoggedIn={setIsLoggedIn} />
+          <Register userName={userName} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} />
         </Route>
       </Switch>
     </div>

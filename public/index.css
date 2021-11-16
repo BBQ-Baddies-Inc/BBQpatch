@@ -1,4 +1,20 @@
 
+/* BODY */
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ccc;
+}
+
+body .welcome {
+  margin-top: 12rem;
+  text-align: center;
+  font-size: larger;
+}
+
+/*Navbar*/
 
 .navbar {
     display: flex;
@@ -18,3 +34,42 @@
   .navbar .links:hover {
     color:orange;
   }
+
+  /* LOGIN/SIGNUP */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.login-form .login-container button {
+  cursor: pointer;
+}
+
+.login-container .usernameLogin {
+  margin-bottom: 1rem;
+}
+
+.login-container .usernameLogin label {
+  margin-right: 1rem;
+}
+
+.login-container .passwordLogin {
+  margin-bottom: 1rem;
+}
+
+.login-container .passwordLogin label {
+  margin-right: 1rem;
+}
+
+/* REGISTER */
+
+.container .registerUsername label {
+  margin-right: 1rem;
+}
+
+.container button {
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { clearCurrentUser, clearUserName, getToken} from "../auth";
+import { clearCurrentUser, clearUserName} from "../auth";
 
 export default function Navbar(props) {
   const { isLoggedIn, setIsLoggedIn } = props

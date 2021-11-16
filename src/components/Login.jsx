@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { loginUser } from "../api/users";
 import { storeToken, storeUserName } from "../auth";
-import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
-  const { userName, isLoggedIn, setUserName, setIsLoggedIn } = props;
+  const { userName, isLoggedIn, setUserName} = props;
   const [password, setPassword] = useState("");
 
-  const history = useHistory();
+  
 
   
   
-  if (isLoggedIn === false) {
+  if (!isLoggedIn) {
     return (
       <form
         className="login-form"
@@ -24,10 +23,10 @@ export default function Login(props) {
             console.log(results, "!!!!!!");
             storeToken(results.token);
             storeUserName(userName);
-            setIsLoggedIn(true);
+            
             setPassword("");
 
-            history.push("/myroutines");
+            
 
             alert(`${results.message}`);
           } catch (error) {
