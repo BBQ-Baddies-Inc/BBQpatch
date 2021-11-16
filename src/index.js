@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import {getToken} from "./auth"
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { Login, Register, Navbar } from "./components";
@@ -9,10 +10,16 @@ const App = () => {
 const [userName, setUserName] = useState("");
 const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+useEffect(() => {
+  const TOKEN = getToken();
+  if (TOKEN) {
+      setIsLoggedIn(true);
+    }
+}, [setIsLoggedIn]);
 
   return (
     <div id="app">
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Switch>
         <Route path="/login">
           <Login
