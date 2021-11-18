@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {getToken} from "./auth"
 
 import { BrowserRouter as Router } from "react-router-dom";
-import { Login, Register, Navbar } from "./components";
+import { Login, Register, Navbar, Products } from "./components";
 import { Switch , Route} from "react-router";
 
 const App = () => {
@@ -15,12 +15,13 @@ useEffect(() => {
   if (TOKEN) {
       setIsLoggedIn(true);
     }
-}, [setIsLoggedIn]);
+}, []);
 
   return (
     <div id="app">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Switch>
+        <h1>HEllo</h1>
         <Route path="/login">
           <Login
             userName={userName}
@@ -31,6 +32,9 @@ useEffect(() => {
         </Route>
         <Route path="/register">
           <Register userName={userName} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route path="/products">
+          <Products />
         </Route>
       </Switch>
     </div>

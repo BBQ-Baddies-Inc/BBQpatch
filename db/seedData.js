@@ -1,5 +1,6 @@
 const {client} = require ('./client')
 const userData = require ('./USERS.json')
+const products = require('./PRODUCTS.json')
 
 const {
   createUser,
@@ -36,7 +37,15 @@ async function dropTables() {
 	admin BOOLEAN DEFAULT FALSE,
   password VARCHAR(255) NOT NULL
       );
-  
+  CREATE TABLE products(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  stock_data INTEGER NOT NULL,
+  photo VARCHAR(255) NOT NULL,
+  category VARCHAR(255) NOT NULL
+      );
 
       `);
   

@@ -13,6 +13,18 @@ async function createProduct({name,price,category,imageUrl,description,quantity}
     }
 }
 
+async function getAllProducts() {
+    try {
+        const {rows:[products]} = await client.query(`
+            SELECT * FROM products;
+        `)
+        return products
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
-    createProduct
+    createProduct,
+    getAllProducts
 };
