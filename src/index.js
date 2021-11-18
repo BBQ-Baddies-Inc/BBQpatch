@@ -21,7 +21,6 @@ useEffect(() => {
     <div id="app">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Switch>
-        <h1>HEllo</h1>
         <Route path="/login">
           <Login
             userName={userName}

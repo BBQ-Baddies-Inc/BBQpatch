@@ -1,8 +1,10 @@
 const express = require("express");
 const apiRouter = express.Router();
+
 const jwt = require("jsonwebtoken");
 const {JWT_SECRET = "neverTell"} = process.env
 const userRouter = require("./users");
+
 
 const {
   getUserById,
@@ -46,5 +48,6 @@ apiRouter.use(async (req, res, next) => {
 });
 
 apiRouter.use('/users', userRouter)
+apiRouter.use('/products', require("./products"))
 
 module.exports = apiRouter
