@@ -26,3 +26,4 @@ export function getUserName(){
 export function clearUserName(){
     localStorage.removeItem('username');
 }
+
