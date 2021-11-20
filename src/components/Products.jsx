@@ -17,8 +17,9 @@ export default function Products() {
   //   console.log(allProducts)
   console.log(products);
   return (
-    <div className="products_page">
+    <div>
       <h1>Products</h1>
+      <div className="products_page">
       <div className="card_positions">
         {products.map((product) => {
           const { name, price, description, photos } = product;
@@ -28,8 +29,9 @@ export default function Products() {
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
-                <Button variant="primary">Add to Cart</Button>
-                <form>
+                <Card.Text>{price}</Card.Text>
+                {/* <Button variant="primary">Add to Cart</Button> */}
+                <form className="productButtons">
                   <input
                     type="number"
                     // placeholder=“quantity-of-products”
@@ -51,6 +53,8 @@ export default function Products() {
           );
         })}
       </div>
+      </div>
+      
     </div>
   );
 }
