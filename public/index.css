@@ -1,11 +1,10 @@
-
 /* BODY */
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ccc;
+  background-color: rgb(0, 0, 0);
 }
 
 body .welcome {
@@ -17,25 +16,25 @@ body .welcome {
 /*Navbar*/
 
 .navbar {
-    display: flex;
-    justify-content: flex-end;
-    background-color: #333;
-    cursor: pointer;
-    height: 3rem;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: flex-end;
+  background-color: #333;
+  cursor: pointer;
+  height: 3rem;
+  align-items: center;
+}
 
-  .navbar .links {
-    margin-right: 1rem;
-    text-decoration: none;
-    color: white;
-  }
-  
-  .navbar .links:hover {
-    color:orange;
-  }
+.navbar .links {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: white;
+}
 
-  /* LOGIN/SIGNUP */
+.navbar .links:hover {
+  color: orange;
+}
+
+/* LOGIN/SIGNUP */
 
 .login-form {
   display: flex;
@@ -72,4 +71,36 @@ body .welcome {
 
 .container button {
   cursor: pointer;
+}
+
+h1 {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+
+}
+
+p {
+  /* position: absolute;
+  width: 186.94px;
+  height: 72px;
+  left: 246.77px;
+  top: 814px; */
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  
+  color: #FFFFFF;
+  
+
 }
