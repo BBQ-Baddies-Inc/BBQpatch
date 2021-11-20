@@ -83,8 +83,7 @@ h1 {
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 p {
@@ -93,14 +92,37 @@ p {
   height: 72px;
   left: 246.77px;
   top: 814px; */
-  
+
   font-family: Montserrat;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
-  
-  color: #FFFFFF;
-  
 
+  color: #ffffff;
+}
+
+.card {
+  display: grid;
+  width: 186.94px;
+  height: 72px;
+  left: 246.77px;
+  top: 814px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.card_positions {
+  display: grid;
+  grid-template-columns: auto auto auto; 
+  grid-template-rows: auto auto auto;
+  grid-gap: 1rem;
+}
+
+.products_page {
+  display: grid;
 }
