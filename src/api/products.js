@@ -3,12 +3,10 @@ export const BASE = "http://localhost:5000/api/products"; //we will have to adju
 
 export async function getProducts() {
   try {
-    const {data} = await axios.get(`${BASE}`, {
-        headers: {
-            'Content-Type': 'application/json',}
-            });
+    console.log("hello")
+    const {data} = await axios.get(`${BASE}`);
             console.log(data)
-    return data;
+    return data.products;
   } catch (err) {
     console.log(err);
   }

@@ -1,30 +1,35 @@
-const client = require ('./client')
+const { client } = require("./client");
 
-async function createProduct({name,price,category,imageUrl,description,quantity}) {
-    try {
-        const {rows} = await client.query(`
-            INSERT INTO products (name, price, category, imageUrl, description, quantity)
+async function createProduct({ name, price, category, photo, description, stock_data }) {
+  try {
+    const { rows } = await client.query(
+      `
+            INSERT INTO products (name, price, category, photo, description, stock_data)
             VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
-        `, [name, price, category, imageUrl, description, quantity])
-        return rows[0]
-    } catch (error) {
-        throw error
-    }
+        `,
+      [name, price, category, photo, description, stock_data]
+    );
+    return rows[0];
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getAllProducts() {
-    try {
-        const {rows:[products]} = await client.query(`
+  try {
+    console.log("in all products");
+    const { rows } = await client.query(`
             SELECT * FROM products;
-        `)
-        return products
-    } catch (error) {
-        throw error
-    }
+        `);
+    console.log(rows, "hopefully products");
+    return rows;
+  } catch (error) {
+    throw error;
+  }
 }
 
 module.exports = {
-    createProduct,
-    getAllProducts
+  createProduct,
+  getAllProducts,
 };

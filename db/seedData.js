@@ -4,15 +4,18 @@ const products = require('./PRODUCTS.json')
 
 const {
   createUser,
-} = require('./')
+  createProduct
+} = require('./');
+
 
 async function dropTables() {
     try {
       console.log('Dropping All Tables...');
       // drop all tables, in the correct order
       await client.query(`
-   
+      DROP TABLE IF EXISTS products;
       DROP TABLE IF EXISTS users;
+      
     `);
   console.log('Finishing dropping tables!')
     } catch (error) {
@@ -40,10 +43,10 @@ async function dropTables() {
   CREATE TABLE products(
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  description VARCHAR(255) NOT NULL,
+  description text NOT NULL,
   price DECIMAL(10,2) NOT NULL,
   stock_data INTEGER NOT NULL,
-  photo VARCHAR(255) NOT NULL,
+  photo text NOT NULL,
   category VARCHAR(255) NOT NULL
       );
 
@@ -73,12 +76,29 @@ async function dropTables() {
     }
   }
 
+  async function createInitialProducts() {
+    console.log('Starting to create products...');
+    try {
+  
+       
+      const productData = await Promise.all(products.map(createProduct));
+  
+      console.log('products created:');
+      console.log(productData);
+      console.log('Finished creating products!');
+    } catch (error) {
+      console.error('Error creating products!');
+      throw error;
+    }
+  }
+
   async function rebuildDB() {
     try {
       client.connect();
       await dropTables();
       await createTables();
       await createInitialUsers();
+      await createInitialProducts();
     } catch (error) {
       console.log("Error during rebuildDB");
       throw error;
