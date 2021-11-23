@@ -14,7 +14,7 @@ console.log(allUsers, "usersssss")
   }, []);
 
   return (
-    <div>
+    <div className="admin_user">
       <h1>Users</h1>
       <ul>
         {users && users.length
