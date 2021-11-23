@@ -22,10 +22,10 @@ export default function Products() {
       <div className="products_page">
       <div className="card_positions">
         {products.map((product) => {
-          const { name, price, description, photos } = product;
+          const { name, price, description, photo} = product;
           return (
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img src={photo}/>
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
