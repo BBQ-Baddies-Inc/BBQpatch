@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getToken } from '../auth';
 
 export const BASE = "http://localhost:5000/api/users"; //we will have to adjust to heroku......fitnesstrackerfront
 
@@ -29,4 +30,19 @@ export async function loginUser(username, password) {
   } catch (error) {
     console.log(error.message);
   }
+}
+
+export async function getAllUsers(){
+  const token = getToken();
+
+try{
+  const {data} = await axios.get(`${BASE}/allusers`, {
+    headers: {Authorization: `Bearer ${token}`,
+  "Content-Type": "application/json"}
+  });
+  return data
+}catch(error){
+  throw error;
+}
+
 }

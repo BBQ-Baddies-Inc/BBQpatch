@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { clearCurrentUser, clearUserName} from "../auth";
 
 export default function Navbar(props) {
-  const { isLoggedIn, setIsLoggedIn } = props
+  const { isLoggedIn, setIsLoggedIn, isAdmin } = props
 
   // const [personalData, setPersonalData] = useState([])
 
   // useEffect(async () => {
 
   // }, []);
-
+console.log(isAdmin, "ADMIN")
   return (
     <nav className="navbar">
       <div>
@@ -23,11 +23,15 @@ export default function Navbar(props) {
         <Link className="links" to="/cart">
           Cart
         </Link>
-        {/* {isLoggedIn  ?  */}
+       
         <Link className="links" to="/mybbq">
           Account
         </Link>
-        {/* //  : null} */}
+        {isAdmin === true ? <Link className="links" to="/admin">
+        
+        Admin
+        </Link> : null}
+       
         {isLoggedIn ? (
           <Link
             className="links"
