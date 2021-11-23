@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
+
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { getProducts } from "../api/products";
@@ -21,10 +21,10 @@ export default function Products() {
       <h1>Products</h1>
       <div className="products_page">
       <div className="card_positions">
-        {products.map((product) => {
+        {products.map((product, indx) => {
           const { name, price, description, photos } = product;
           return (
-            <Card style={{ width: "18rem" }}>
+            <Card style={{ width: "18rem" }} key={`card-${indx}`}>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Card.Title>{name}</Card.Title>

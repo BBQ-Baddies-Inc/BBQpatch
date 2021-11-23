@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import {getToken} from "./auth"
 
 import { BrowserRouter as Router } from "react-router-dom";
-import { Login, Register, Navbar, Products } from "./components";
+import { Login, Register, Navbar, Products, Admin } from "./components";
 import { Switch , Route} from "react-router";
 
 const App = () => {
 const [userName, setUserName] = useState("");
 const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [isAdmin, setIsAdmin] = useState(false);
 
 useEffect(() => {
   const TOKEN = getToken();
@@ -17,9 +18,11 @@ useEffect(() => {
     }
 }, []);
 
+
+
   return (
     <div id="app">
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>
       <Switch>
         <Route path="/login">
           <Login
@@ -27,6 +30,8 @@ useEffect(() => {
             setUserName={setUserName}
             setIsLoggedIn={setIsLoggedIn}
             isLoggedIn={isLoggedIn}
+            setIsAdmin={setIsAdmin}
+            
           />
         </Route>
         <Route path="/register">
@@ -35,6 +40,11 @@ useEffect(() => {
         <Route path="/products">
           <Products />
         </Route>
+
+          <Route path="/admin">
+            <Admin />
+        </Route>
+
       </Switch>
     </div>
   );

@@ -1,36 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import { loginUser } from "../api/users";
+import { loginUser, getAllUsers } from "../api/users";
 import { storeToken, storeUserName } from "../auth";
 
 export default function Login(props) {
-  const { userName, isLoggedIn, setUserName} = props;
+  const { userName, isLoggedIn, setUserName, setIsAdmin, setIsLoggedIn } =
+    props;
   const [password, setPassword] = useState("");
+  const [adminUsers, setAdminUsers] = useState([]);
 
-  
+  const fetchAllUsers = async () => {
+    const allUsers = await getAllUsers();
+    setAdminUsers(allUsers);
+  };
+  useEffect(() => {
+    fetchAllUsers();
+  }, []);
 
-  
-  
+  // function administrator () {
+  //   const ADMINLIST = [];
+  //   const ADMIN = adminUsers.filter((user) => user.admin === true);
+    
+  //   ADMIN.map((admin) => {
+    
+  //     ADMINLIST.push(admin.username)
+      
+  //   });
+  //   return
+  // }
+
   if (!isLoggedIn) {
     return (
       <form
         className="login-form"
         onSubmit={async (event) => {
           event.preventDefault();
+          // if (ADMINLIST.includes(userName)) {
+          //   setIsAdmin(true);
+          // }
 
           try {
             const results = await loginUser(userName, password);
             console.log(results, "!!!!!!");
             storeToken(results.token);
             storeUserName(userName);
-            
+            setIsLoggedIn(true);
             setPassword("");
-
-            
+            // console.
+            if(results.user.admin){
+              setIsAdmin(true)
+            }
 
             alert(`${results.message}`);
           } catch (error) {
             console.log(error);
+          } finally {
+            //  await administrator();
           }
         }}
       >

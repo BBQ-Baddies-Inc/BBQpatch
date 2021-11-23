@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { clearCurrentUser, clearUserName} from "../auth";
 
 export default function Navbar(props) {
-  const { isLoggedIn, setIsLoggedIn } = props
-
+  const { isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin } = props
+ let history = useHistory();
   // const [personalData, setPersonalData] = useState([])
 
   // useEffect(async () => {
 
   // }, []);
-
+console.log(isAdmin, "ADMIN")
   return (
     <nav className="navbar">
       <div>
@@ -23,11 +23,15 @@ export default function Navbar(props) {
         <Link className="links" to="/cart">
           Cart
         </Link>
-        {/* {isLoggedIn  ?  */}
+       
         <Link className="links" to="/mybbq">
           Account
         </Link>
-        {/* //  : null} */}
+        {isAdmin ? <Link className="links" to="/admin">
+        
+        Admin
+        </Link> : null}
+       
         {isLoggedIn ? (
           <Link
             className="links"
@@ -40,6 +44,8 @@ export default function Navbar(props) {
                 clearCurrentUser();
                 clearUserName();
                 setIsLoggedIn(false);
+                setIsAdmin(false)
+                history.push("/login")
               // }
             }}
           >

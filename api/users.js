@@ -9,6 +9,7 @@ const {
   getUserByUsername,
   getUser,
   getUserById,
+  getAllUsers
   
 } = require("../db");
 const requireUser = require("./utilities");
@@ -72,5 +73,23 @@ userRouter.get("/me", requireUser, async (req, res, next) => {
     next(error);
   }
 });
+
+userRouter.get("/", requireUser, async(req, res, next)=>{
+  try{
+    console.log(req.user)
+    if (req.user.admin){
+     const usersLists = await getAllUsers()
+     console.log(usersLists, "USER LIST")
+     res.send(usersLists)
+    }else{
+      next({
+        message: "You Are Unauthorized"
+      })
+    } 
+      
+  }catch(error){
+  next(error)
+  }
+})
 
 module.exports = userRouter
