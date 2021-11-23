@@ -108,6 +108,7 @@ p {
   justify-content: space-between;
   padding: 1.5rem;
   width: 186.94px;
+  height: 25rem;
   left: 246.77px;
   top: 814px;
   font-family: Montserrat;
@@ -123,9 +124,9 @@ p {
 .card_positions {
   display: grid;
   grid-template-columns: 20rem 20rem 20rem;
-  grid-template-rows: 20rem 20rem 20rem; 
-  column-gap: 10px;
-  row-gap: 15px;
+  grid-template-rows: 25rem 25rem 25rem; 
+  column-gap: 20px;
+  row-gap: 3rem;
 
 }
 

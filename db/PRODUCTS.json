@@ -11,7 +11,7 @@
         "name": "Kabab Kit",
         "price": 60,
         "photo":"/assets/KababKit.png",
-        "description": "Our pre-marinated Kabab Kits can be cooked in any domestic grill - just check that your oven grills with the door open so you can make use of the skewers we include in the kit!",
+        "description": "Our pre-marinated Kabab Kits can be cooked in any domestic grill! Yum!",
         "stock_data": 200,
         "category": "Kits"
     },
@@ -19,64 +19,25 @@
         "name": "Sasuage Kits",
         "price": 643,
         "photo":"/assets/SasuageKit.png",
-        "description": "This charcuterie is all made in-house by Cochon Butcher, a hybrid New Orleans butcher shop/restaurant opened in 2009 that is home to some of the Crescent City’s best house-made charcuterie and creative sandwiches.",
+        "description": "This charcuterie is all made in-house by Cochon Butcher, a hybrid New Orleans. Best house-made charcuterie and creative sandwiches.",
         "stock_data": 300,
         "category": "Kits"
     },
     {
-        "name": "Rosalie",
-        "price": 871,
-        "photo":"/assets/burger.png",
-        "description": "Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
-        "stock_data": 4,
-        "category": "Beer"
+        "name": "Chicken Wings",
+        "price": 50,
+        "photo":"/assets/ChickenWings.png",
+        "description": "A marinade wing based on Turkish hot pepper paste infuses them with roasted-chile flavor.",
+        "stock_data": 100,
+        "category": "Kits"
     },
     {
-        "name": "Rosetta",
-        "price": 490,
-        "photo":"/assets/burger.png",
-        "description": "Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.",
-        "stock_data": 5,
-        "category": "Meats"
-    },
-    {
-        "name": "Zacharias",
-        "price": 228,
-        "photo":"/assets/burger.png",
-        "description": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
-        "stock_data": 6,
-        "category": "Sauces"
-    },
-    {
-        "name": "Zena",
-        "price": 864,
-        "photo":"/assets/burger.png",
-        "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
-        "stock_data": 7,
-        "category": "Beer"
-    },
-    {
-        "name": "Koren",
-        "price": 708,
-        "photo":"/assets/burger.png",
-        "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
-        "stock_data": 8,
-        "category": "Meats"
-    },
-    {
-        "name": "Odelle",
-        "price": 859,
-        "photo":"/assets/burger.png",
-        "description": "Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
-        "stock_data": 9,
-        "category": "Meats"
-    },
-    {
-        "name": "Kendell",
-        "price": 407,
-        "photo":"/assets/burger.png",
-        "description": "Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",
-        "stock_data": 10,
-        "category": "Meats"
+        "name": "Chicken Nuggets",
+        "price": 50,
+        "photo":"/assets/ChickenNuggets.png",
+        "description": "Our chicken nuggets are made with the finest quality chicken, and are prepared with a special sauce that is made with the finest quality of spices.",
+        "stock_data": 100,
+        "category": "Kits"
     }
 ]
+    
