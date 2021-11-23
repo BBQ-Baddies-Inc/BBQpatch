@@ -21,11 +21,12 @@ export default function Products() {
       <h1>Products</h1>
       <div className="products_page">
       <div className="card_positions">
-        {products.map((product, indx) => {
-          const { name, price, description, photos } = product;
+
+        {products.map((product) => {
+          const { name, price, description, photo} = product;
           return (
-            <Card style={{ width: "18rem" }} key={`card-${indx}`}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+            <Card style={{ width: "18rem" }}>
+              <Card.Img src={photo}/>
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
