@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {getToken} from "./auth"
 
 import { BrowserRouter as Router } from "react-router-dom";
-import { Login, Register, Navbar, Products, Users } from "./components";
+import { Login, Register, Navbar, Products, Admin } from "./components";
 import { Switch , Route} from "react-router";
 
 const App = () => {
@@ -22,7 +22,7 @@ useEffect(() => {
 
   return (
     <div id="app">
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isAdmin={isAdmin}/>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>
       <Switch>
         <Route path="/login">
           <Login
@@ -42,7 +42,7 @@ useEffect(() => {
         </Route>
 
           <Route path="/admin">
-            <Users />
+            <Admin />
         </Route>
 
       </Switch>
