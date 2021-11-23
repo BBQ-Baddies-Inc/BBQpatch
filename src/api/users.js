@@ -36,7 +36,7 @@ export async function getAllUsers(){
   const token = getToken();
 
 try{
-  const {data} = await axios.get(`${BASE}/allusers`, {
+  const {data} = await axios.get(`${BASE}/`, {
     headers: {Authorization: `Bearer ${token}`,
   "Content-Type": "application/json"}
   });

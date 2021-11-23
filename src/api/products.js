@@ -4,7 +4,7 @@ export const BASE = "http://localhost:5000/api/products"; //we will have to adju
 export async function getProducts() {
   try {
     console.log("hello")
-    const {data} = await axios.get(`${BASE}`);
+    const {data} = await axios.get(`${BASE}/`);
             console.log(data)
     return data.products;
   } catch (err) {

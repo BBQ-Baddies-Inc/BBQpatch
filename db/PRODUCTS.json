@@ -1,27 +1,27 @@
 [
     {
-        "name": "Rouvin",
-        "price": 102,
+        "name": "Burger Kit",
+        "price": 50,
         "photo":"/assets/burger.png",
-        "description": "Vivamus tortor. Duis mattis egestas metus.",
-        "stock_data": 1,
-        "category": "Sauces"
+        "description": "Our burgers are prepared with prime cuts and steak trimmings, salt & pepper, so that you can really taste that BBQ Baddies flavour.",
+        "stock_data": 100,
+        "category": "Kits"
     },
     {
-        "name": "Lemmie",
-        "price": 246,
-        "photo":"/assets/burger.png",
-        "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
-        "stock_data": 2,
-        "category": "Beer"
+        "name": "Kabab Kit",
+        "price": 60,
+        "photo":"/assets/KababKit.png",
+        "description": "Our pre-marinated Kabab Kits can be cooked in any domestic grill - just check that your oven grills with the door open so you can make use of the skewers we include in the kit!",
+        "stock_data": 200,
+        "category": "Kits"
     },
     {
-        "name": "Terrence",
+        "name": "Sasuage Kits",
         "price": 643,
-        "photo":"/assets/burger.png",
-        "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.",
-        "stock_data": 3,
-        "category": "Beer"
+        "photo":"/assets/SasuageKit.png",
+        "description": "This charcuterie is all made in-house by Cochon Butcher, a hybrid New Orleans butcher shop/restaurant opened in 2009 that is home to some of the Crescent City’s best house-made charcuterie and creative sandwiches.",
+        "stock_data": 300,
+        "category": "Kits"
     },
     {
         "name": "Rosalie",
