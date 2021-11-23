@@ -83,8 +83,7 @@ h1 {
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 p {
@@ -93,14 +92,54 @@ p {
   height: 72px;
   left: 246.77px;
   top: 814px; */
-  
+
   font-family: Montserrat;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
-  
-  color: #FFFFFF;
-  
 
+  color: #ffffff;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  width: 186.94px;
+  left: 246.77px;
+  top: 814px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  background-color: #141416;
+  ;
+}
+
+.card_positions {
+  display: grid;
+  grid-template-columns: 20rem 20rem 20rem;
+  grid-template-rows: 20rem 20rem 20rem; 
+  column-gap: 10px;
+  row-gap: 15px;
+
+}
+
+.products_page {
+ display: flex;
+ flex-direction: row;
+ align-content: center;
+ justify-content: center;
+}
+
+.productButtons{
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: flex-end;
+  vertical-align: bottom;
 }
