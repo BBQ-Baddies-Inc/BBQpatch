@@ -74,7 +74,7 @@ userRouter.get("/me", requireUser, async (req, res, next) => {
   }
 });
 
-userRouter.get("/allusers", requireUser, async(req, res, next)=>{
+userRouter.get("/", requireUser, async(req, res, next)=>{
   try{
     console.log(req.user)
     if (req.user.admin){

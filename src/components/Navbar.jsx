@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { clearCurrentUser, clearUserName} from "../auth";
 
 export default function Navbar(props) {
-  const { isLoggedIn, setIsLoggedIn, isAdmin } = props
-
+  const { isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin } = props
+ let history = useHistory();
   // const [personalData, setPersonalData] = useState([])
 
   // useEffect(async () => {
@@ -27,7 +27,7 @@ console.log(isAdmin, "ADMIN")
         <Link className="links" to="/mybbq">
           Account
         </Link>
-        {isAdmin === true ? <Link className="links" to="/admin">
+        {isAdmin ? <Link className="links" to="/admin">
         
         Admin
         </Link> : null}
@@ -44,6 +44,8 @@ console.log(isAdmin, "ADMIN")
                 clearCurrentUser();
                 clearUserName();
                 setIsLoggedIn(false);
+                setIsAdmin(false)
+                history.push("/login")
               // }
             }}
           >
