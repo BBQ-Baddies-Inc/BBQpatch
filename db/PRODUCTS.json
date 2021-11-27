@@ -38,6 +38,38 @@
         "description": "Our chicken nuggets are made with the finest quality chicken, and are prepared with a special sauce that is made with the finest quality of spices.",
         "stock_data": 100,
         "category": "Kits"
+    },
+    {
+        "name": "BBQ Ribs",
+        "price": 50,
+        "photo":"/assets/BBQRibs.png",
+        "description": "Our BBQ ribs are made with the finest quality of pork meat, and are prepared with a special sauce that is made with the finest quality of spices.",
+        "stock_data": 100,
+        "category": "Kits"
+    },
+    {
+        "name": "BBQ Beans",
+        "price": 50,
+        "photo":"/assets/BBQBeans.png",
+        "description": "Our BBQ beans are made with the finest quality of beans, and are prepared with a special sauce that is made with the finest quality of spices.",
+        "stock_data": 100,
+        "category": "Kits"
+    },
+    {
+        "name": "BBQ Sauce",
+        "price": 50,
+        "photo":"/assets/BBQSauce.png",
+        "description": "Our BBQ sauce is made with the finest quality of spices, and is prepared with a special sauce that is made with the finest quality of spices.",
+        "stock_data": 100,
+        "category": "Kits"
+    },
+    {
+        "name": "Mashed Potatoes",
+        "price": 50,
+        "photo":"/assets/MashedPotatoes.png",
+        "description": "Our mashed potatoes are made with the finest quality of potatoes, and are prepared with a special sauce that is made with the finest quality of spices.",
+        "stock_data": 100,
+        "category": "Kits"
     }
 ]
     
