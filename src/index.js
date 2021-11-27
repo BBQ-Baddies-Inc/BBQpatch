@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { getToken } from "./auth"
 
 import { BrowserRouter as Router } from "react-router-dom";
-import { Login, Register, Navbar, Products, Admin } from "./components";
+import { Login, Register, Navbar, Products, Admin, LandingScreen } from "./components";
 import { Switch, Route } from "react-router";
 
 const App = () => {
@@ -45,7 +45,7 @@ const App = () => {
           <Admin />
         </Route>
         <Route path="/">
-          <Home image5="https://anima-uploads.s3.amazonaws.com/projects/61a27368a28b3fe153421fed/releases/61a27df2b025b40396416fc4/img/image-5@1x.png"
+          <LandingScreen image5="https://anima-uploads.s3.amazonaws.com/projects/61a27368a28b3fe153421fed/releases/61a27df2b025b40396416fc4/img/image-5@1x.png"
             text1="Create the best ribs"
             text2="These state-of-the-art grills allow you to monitor your food from your smart device so you can spend more time enjoying company or watching the game"
             title="BBQ Baddies"

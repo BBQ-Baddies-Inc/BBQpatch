@@ -80,7 +80,7 @@ h1 {
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 17px;
+  line-height: 76px;
   letter-spacing: 0em;
   text-align: left;
   color: #ffffff;
@@ -143,4 +143,46 @@ p {
   align-self: center;
   justify-self: flex-end;
   vertical-align: bottom;
+}
+
+
+
+/*LANDING PAGE CSS*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,700,600|Mr+Dafoe:400");
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+  margin-top: 1.4rem;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root { 
+  --black: #000000;
+  --white: #ffffff;
+ 
+  --font-size-l: 18px;
+  --font-size-m: 14px;
+  --font-size-xxxl: 72px;
+ 
+  --font-family-montserrat: "Montserrat", Helvetica;
+  --font-family-mr_dafoe: "Mr Dafoe", Helvetica;
 }
