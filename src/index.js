@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import {getToken} from "./auth"
+import { getToken } from "./auth"
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { Login, Register, Navbar, Products, Admin } from "./components";
-import { Switch , Route} from "react-router";
+import { Switch, Route } from "react-router";
 
 const App = () => {
-const [userName, setUserName] = useState("");
-const [isLoggedIn, setIsLoggedIn] = useState(false);
-const [isAdmin, setIsAdmin] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-useEffect(() => {
-  const TOKEN = getToken();
-  if (TOKEN) {
+  useEffect(() => {
+    const TOKEN = getToken();
+    if (TOKEN) {
       setIsLoggedIn(true);
     }
-}, []);
+  }, []);
 
 
 
   return (
     <div id="app">
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
       <Switch>
         <Route path="/login">
           <Login
@@ -31,7 +31,7 @@ useEffect(() => {
             setIsLoggedIn={setIsLoggedIn}
             isLoggedIn={isLoggedIn}
             setIsAdmin={setIsAdmin}
-            
+
           />
         </Route>
         <Route path="/register">
@@ -41,8 +41,15 @@ useEffect(() => {
           <Products />
         </Route>
 
-          <Route path="/admin">
-            <Admin />
+        <Route path="/admin">
+          <Admin />
+        </Route>
+        <Route path="/">
+          <Home image5="https://anima-uploads.s3.amazonaws.com/projects/61a27368a28b3fe153421fed/releases/61a27df2b025b40396416fc4/img/image-5@1x.png"
+            text1="Create the best ribs"
+            text2="These state-of-the-art grills allow you to monitor your food from your smart device so you can spend more time enjoying company or watching the game"
+            title="BBQ Baddies"
+            fromThePatch="from the patch" />
         </Route>
 
       </Switch>

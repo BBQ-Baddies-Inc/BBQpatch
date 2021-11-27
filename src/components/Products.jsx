@@ -46,12 +46,6 @@ export default function Products() {
                       </form>
                     </Card.Body>
                   </Card>
-                  // <div className="card" key={product.id}>
-                  //   <h2>{name}</h2>
-                  //   <p>{price}</p>
-                  //   <p>{description}</p>
-                  //   <a href={photos}></a>
-                  // </div>
                 );
               })
             : null}
