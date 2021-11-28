@@ -10,6 +10,8 @@ const App = () => {
   const [userName, setUserName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [products, setProducts] = useState([]);
+
 
   useEffect(() => {
     const TOKEN = getToken();
@@ -38,14 +40,16 @@ const App = () => {
           <Register userName={userName} setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/products">
-          <Products />
+          <Products products={products} setProducts={setProducts} />
         </Route>
 
         <Route path="/admin">
           <Admin />
         </Route>
         <Route path="/">
-          <LandingScreen image5="https://anima-uploads.s3.amazonaws.com/projects/61a27368a28b3fe153421fed/releases/61a27df2b025b40396416fc4/img/image-5@1x.png"
+          <LandingScreen
+            products={products} setProducts={setProducts}
+            image5="https://anima-uploads.s3.amazonaws.com/projects/61a27368a28b3fe153421fed/releases/61a27df2b025b40396416fc4/img/image-5@1x.png"
             text1="Create the best ribs"
             text2="These state-of-the-art grills allow you to monitor your food from your smart device so you can spend more time enjoying company or watching the game"
             title="BBQ Baddies"
