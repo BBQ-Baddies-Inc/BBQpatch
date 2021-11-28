@@ -7,7 +7,8 @@ import {
 import "./Desktop5.css";
 
 function Desktop5(props) {
-  const { image5, text1, text2, title, fromThePatch } = props;
+  const { products, image5, text1, text2, title, fromThePatch } = props;
+  console.log(products);
 
   return (
     <div className="container-center-horizontal">
