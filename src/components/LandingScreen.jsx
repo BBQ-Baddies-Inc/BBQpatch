@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {
   MontserratLightWhite14px,
   MontserratSemiBoldWhite14px
-} from "../../styledMixins";
+} from "../styledMixins";
 import "./Desktop5.css";
 
 function Desktop5(props) {
