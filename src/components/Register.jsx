@@ -3,7 +3,20 @@ import { registerUser } from "../api/users";
 import { storeToken, storeUserName } from "../auth";
 
 export default function Register(props) {
-    const { userName, setIsLoggedIn, setUserName } = props;
+  const {
+    userName,
+    setIsLoggedIn,
+    setUserName,
+    setEmailAddress,
+    emailAddress,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    address,
+    setAddress,
+    
+  } = props;
   const [password, setPassword] = useState("");
 
   return (
@@ -13,15 +26,17 @@ export default function Register(props) {
         event.preventDefault();
 
         try {
-          console.log(userName, password, "passed in data_______")
+          console.log(userName, password, "passed in data_______");
           const results = await registerUser(userName, password);
           console.log(results, "!!!!!!!!!!");
           storeToken(results.token);
-          
+
           setIsLoggedIn(true);
-          storeUserName(userName)
+          storeUserName(userName);
           setUserName("");
           setPassword("");
+          setUserName("");
+          setEmailAddress("");
           // history.push("/routines");
           alert("You are registered!");
         } catch (error) {
@@ -48,11 +63,12 @@ export default function Register(props) {
               required
               value={userName}
               onChange={(event) => {
-                console.log(event.target.value, "username")
+                console.log(event.target.value, "username");
                 setUserName(event.target.value);
               }}
             />
           </div>
+          <div className="registerUsername">
           <label htmlFor="psw">
             <b>Password</b>
           </label>
@@ -75,10 +91,79 @@ export default function Register(props) {
             required
             value={password}
             onChange={(event) => {
-              console.log(event.target.value, "password")
+              console.log(event.target.value, "password");
               setPassword(event.target.value);
             }}
           />
+          </div>
+          <div className="registerUsername">
+            <label htmlFor="email">
+              <b>Email</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Email"
+              name=""
+              id="email"
+              required
+              value={emailAddress}
+              onChange={(event) => {
+                console.log(event.target.value, "email");
+                setEmailAddress(event.target.value);
+              }}
+            />
+          </div>
+          <div className="registerUsername">
+            <label htmlFor="firstName">
+              <b>First Name</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter First Name"
+              name=""
+              id="firstName"
+              required
+              value={firstName}
+              onChange={(event) => {
+                console.log(event.target.value, "LAST NAME");
+                setFirstName(event.target.value);
+              }}
+            />
+          </div>
+          <div className="registerUsername">
+            <label htmlFor="lastName">
+              <b>Last Name</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Last Name"
+              name=""
+              id="lastName"
+              required
+              value={lastName}
+              onChange={(event) => {
+                console.log(event.target.value, "LAST NAME");
+                setLastName(event.target.value);
+              }}
+            />
+          </div>
+          <div className="registerUsername">
+            <label htmlFor="address">
+              <b>Address</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Address"
+              name=""
+              id="address"
+              required
+              value={address}
+              onChange={(event) => {
+                console.log(event.target.value, "ADDRESS");
+                setAddress(event.target.value);
+              }}
+            />
+          </div>
         </>
 
         <button type="submit" className="registerbtn">
@@ -88,7 +173,7 @@ export default function Register(props) {
 
       <div className="container signin">
         <p>
-          Already have an account? <a href="/login">Sign in</a>.
+          Already have an account? <a href="/login">Sign in</a>
         </p>
       </div>
     </form>

@@ -61,7 +61,7 @@ export default function Login(props) {
       >
         <h1 className="login-title">
           {" "}
-          <span>Athelete Login</span>
+          <span>Login</span>
         </h1>
         <div className="imgcontainer">
           <i className="far fa-user fa-5x"></i>

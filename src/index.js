@@ -16,6 +16,11 @@ import { Switch, Route } from "react-router";
 
 const App = () => {
   const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [products, setProducts] = useState([]);
@@ -45,6 +50,7 @@ const App = () => {
             setIsLoggedIn={setIsLoggedIn}
             isLoggedIn={isLoggedIn}
             setIsAdmin={setIsAdmin}
+
             userId={userId}
             setUserId={setUserId}
           />
@@ -53,9 +59,17 @@ const App = () => {
           <Register
             userName={userName}
             setUserName={setUserName}
+
+            firstName={firstName}
+            setFirstName={setFirstName}
+            lastName={lastName}
+            setLastName={setLastName}
+            address={address}
+            setAddress={setAddress}
+            emailAddress={emailAddress}
+            setEmailAddress={setEmailAddress}
             setIsLoggedIn={setIsLoggedIn}
-            userId={userId}
-            setUserId={setUserId}
+
           />
         </Route>
         <Route path="/products">

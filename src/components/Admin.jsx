@@ -6,7 +6,6 @@ export default function Admin() {
 
   const fetchAllUsers = async () => {
     const allUsers = await getAllUsers();
-console.log(allUsers, "usersssss")
     setUsers(allUsers);
   };
   useEffect(() => {
@@ -15,26 +14,21 @@ console.log(allUsers, "usersssss")
 
   return (
     <div className="admin_user">
-      <h1>Users</h1>
+      <h1>User List</h1>
       <ul>
         {users && users.length
           ? users.map((user) => {
-              const {
-                id,
-                username,
-                first_name,
-                last_name,
-                email,
-                address,
-                admin,
-              } = user;
+              const { id, username, first_name, last_name, email, address } =
+                user;
               return (
                 <div key={user.id}>
-                  <h2>{username}</h2>
-                  <p>{(first_name, last_name)}</p>
+                  className="products_page"
+                  <p>
+                    {first_name} {last_name}
+                  </p>
+                  <p>{username}</p>
                   <p>{email}</p>
                   <p>{address}</p>
-                  <p>{admin}</p>
                 </div>
               );
             })
