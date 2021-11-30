@@ -10,6 +10,7 @@ import {
   Products,
   Admin,
   LandingScreen,
+  Cart,
 } from "./components";
 import { Switch, Route } from "react-router";
 
@@ -23,6 +24,8 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [products, setProducts] = useState([]);
+  const [productId, setProductId] = useState("");
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     const TOKEN = getToken();
@@ -47,12 +50,16 @@ const App = () => {
             setIsLoggedIn={setIsLoggedIn}
             isLoggedIn={isLoggedIn}
             setIsAdmin={setIsAdmin}
+
+            userId={userId}
+            setUserId={setUserId}
           />
         </Route>
         <Route path="/register">
           <Register
             userName={userName}
             setUserName={setUserName}
+
             firstName={firstName}
             setFirstName={setFirstName}
             lastName={lastName}
@@ -62,14 +69,22 @@ const App = () => {
             emailAddress={emailAddress}
             setEmailAddress={setEmailAddress}
             setIsLoggedIn={setIsLoggedIn}
+
           />
         </Route>
         <Route path="/products">
-          <Products products={products} setProducts={setProducts} />
+          <Products
+            products={products}
+            setProducts={setProducts}
+            setProductId={setProductId}
+          />
         </Route>
 
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route path="/cart">
+          <Cart productId={productId} />
         </Route>
         <Route path="/">
           <LandingScreen

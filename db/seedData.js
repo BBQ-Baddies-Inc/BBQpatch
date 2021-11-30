@@ -4,7 +4,8 @@ const products = require('./PRODUCTS.json')
 
 const {
   createUser,
-  createProduct
+  createProduct,
+  createCart
 } = require('./');
 
 
@@ -13,8 +14,10 @@ async function dropTables() {
       console.log('Dropping All Tables...');
       // drop all tables, in the correct order
       await client.query(`
+      DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS products;
       DROP TABLE IF EXISTS users;
+
       
     `);
   console.log('Finishing dropping tables!')
@@ -49,6 +52,12 @@ async function dropTables() {
   photo text NOT NULL,
   category VARCHAR(255) NOT NULL
       );
+  CREATE TABLE cart(
+    "userId" INTEGER REFERENCES users(id),
+    "productId" INTEGER REFERENCES products(id),
+    quantity INTEGER NOT NULL,
+    "paidFor" BOOLEAN DEFAULT FALSE
+  )    
 
       `);
   
@@ -91,6 +100,19 @@ async function dropTables() {
       throw error;
     }
   }
+  
+  async function createInitialCart(){
+    console.log('Starting to create cart...');
+    try {
+      const cartData = await Promise.all([{userId: 3, productId: 4, quantity: 3},{userId: 5, productId: 3, quantity: 1},{userId: 4, productId: 2, quantity: 1}].map(createCart))
+      console.log('Cart created:');
+      console.log(cartData)
+      console.log("Finished creating Cart")
+    } catch (error) {
+      console.error('error creating Cart')
+    }
+  }
+  
 
   async function rebuildDB() {
     try {
@@ -99,6 +121,7 @@ async function dropTables() {
       await createTables();
       await createInitialUsers();
       await createInitialProducts();
+      await createInitialCart();
     } catch (error) {
       console.log("Error during rebuildDB");
       throw error;
