@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Cart(props) {
   const {productId, setProductId} = props
-
+console.log("5")
   return (
     <div className="container-center-horizontal">
       <div className="cart screen"> 
