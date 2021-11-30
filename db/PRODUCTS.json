@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Burger Kit",
         "price": 50,
         "photo":"/assets/burger.png",
@@ -8,6 +9,7 @@
         "category": "Kits"
     },
     {
+        "id": 2,
         "name": "Kabab Kit",
         "price": 60,
         "photo":"/assets/KababKit.png",
@@ -16,6 +18,7 @@
         "category": "Kits"
     },
     {
+        "id": 3,
         "name": "Sasuage Kits",
         "price": 643,
         "photo":"/assets/SasuageKit.png",
@@ -24,6 +27,7 @@
         "category": "Kits"
     },
     {
+        "id": 4,
         "name": "Chicken Wings",
         "price": 50,
         "photo":"/assets/ChickenWings.png",
@@ -32,6 +36,7 @@
         "category": "Kits"
     },
     {
+        "id": 5,
         "name": "Chicken Nuggets",
         "price": 50,
         "photo":"/assets/ChickenNuggets.png",
@@ -40,6 +45,7 @@
         "category": "Kits"
     },
     {
+        "id": 6,
         "name": "BBQ Ribs",
         "price": 50,
         "photo":"/assets/BBQRibs.png",
@@ -48,6 +54,7 @@
         "category": "Kits"
     },
     {
+        "id": 7,
         "name": "BBQ Beans",
         "price": 50,
         "photo":"/assets/BBQBeans.png",
@@ -56,6 +63,7 @@
         "category": "Kits"
     },
     {
+        "id": 8,
         "name": "BBQ Sauce",
         "price": 50,
         "photo":"/assets/BBQSauce.png",
@@ -64,6 +72,7 @@
         "category": "Kits"
     },
     {
+        "id": 9,
         "name": "Mashed Potatoes",
         "price": 50,
         "photo":"/assets/MashedPotatoes.png",

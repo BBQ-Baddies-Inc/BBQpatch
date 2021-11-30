@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import  {css}  from "styled-components";
 
 export const ValignTextMiddle = css`
   display: flex;
