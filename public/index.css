@@ -41,6 +41,7 @@ body .welcome {
   flex-direction: column;
   flex-wrap: wrap;
   margin-top: 2rem;
+  
 }
 
 .login-form .login-container button {
@@ -57,16 +58,19 @@ body .welcome {
 
 .login-container .passwordLogin {
   margin-bottom: 1rem;
+  color: white
 }
 
 .login-container .passwordLogin label {
   margin-right: 1rem;
+  color: white
 }
 
 /* REGISTER */
 
 .container .registerUsername label {
   margin-right: 1rem;
+  color: white
 }
 
 .container button {
