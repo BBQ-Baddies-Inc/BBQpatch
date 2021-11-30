@@ -31,7 +31,7 @@ async function getCart() {
   }
 
   module.exports = {
+    createCart,
     getCart,
-    createCart
   };
   
