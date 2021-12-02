@@ -12,7 +12,7 @@ const {
   getAllUsers
   
 } = require("../db");
-const requireUser = require("./utilities");
+const {requireUser, isAdmin} = require("./utilities");
 
 userRouter.post("/register", async (req, res, next) => {
   const { username, password } = req.body;
@@ -74,7 +74,7 @@ userRouter.get("/me", requireUser, async (req, res, next) => {
   }
 });
 
-userRouter.get("/", requireUser, async(req, res, next)=>{
+userRouter.get("/", isAdmin, async(req, res, next)=>{
   try{
     console.log(req.user)
     if (req.user.admin){

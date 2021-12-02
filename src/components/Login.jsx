@@ -104,8 +104,9 @@ export default function Login(props) {
           <label className="checkbox">
             <input type="checkbox" name="remember" /> Remember me
           </label>
-          Have you created an Account?<a href="/register"> Sign up here.</a>
+          
         </div>
+        <div className="login-container">Have you created an Account?  <a href="/register">Sign up here.</a></div>
       </form>
     );
   } else {

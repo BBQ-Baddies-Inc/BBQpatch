@@ -15,9 +15,9 @@ export default function Register(props) {
     setLastName,
     address,
     setAddress,
-    
   } = props;
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   return (
     <form
@@ -26,9 +26,16 @@ export default function Register(props) {
         event.preventDefault();
 
         try {
-          console.log(userName, password, "passed in data_______");
-          const results = await registerUser(userName, password);
-          console.log(results, "!!!!!!!!!!");
+          // console.log(userName, password, "passed in data_______");
+          const results = await registerUser(
+            userName,
+            password,
+            emailAddress,
+            firstName,
+            lastName,
+            address
+          );
+
           storeToken(results.token);
 
           setIsLoggedIn(true);
@@ -37,10 +44,12 @@ export default function Register(props) {
           setPassword("");
           setUserName("");
           setEmailAddress("");
-          // history.push("/routines");
+          setAddress("");
+
           alert("You are registered!");
         } catch (error) {
-          console.log(error);
+          console.log(error, "REGISTER");
+          setError("Account Already Registered");
         }
       }}
     >
@@ -63,52 +72,49 @@ export default function Register(props) {
               required
               value={userName}
               onChange={(event) => {
-                console.log(event.target.value, "username");
                 setUserName(event.target.value);
               }}
             />
           </div>
           <div className="registerUsername">
-          <label htmlFor="psw">
-            <b>Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="psw"
-            id="psw"
-            required
-          />
+            <label htmlFor="psw">
+              <b>Password</b>
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              id="psw"
+              required
+            />
 
-          <label htmlFor="psw-repeat">
-            <b>Repeat Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Repeat Password"
-            name="psw-repeat"
-            id="psw-repeat"
-            required
-            value={password}
-            onChange={(event) => {
-              console.log(event.target.value, "password");
-              setPassword(event.target.value);
-            }}
-          />
+            <label htmlFor="psw-repeat">
+              <b>Repeat Password</b>
+            </label>
+            <input
+              type="password"
+              placeholder="Repeat Password"
+              name="psw-repeat"
+              id="psw-repeat"
+              required
+              value={password}
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
           </div>
           <div className="registerUsername">
             <label htmlFor="email">
               <b>Email</b>
             </label>
             <input
-              type="text"
+              type="email"
               placeholder="Enter Email"
               name=""
               id="email"
               required
               value={emailAddress}
               onChange={(event) => {
-                console.log(event.target.value, "email");
                 setEmailAddress(event.target.value);
               }}
             />
@@ -125,7 +131,6 @@ export default function Register(props) {
               required
               value={firstName}
               onChange={(event) => {
-                console.log(event.target.value, "LAST NAME");
                 setFirstName(event.target.value);
               }}
             />
@@ -142,7 +147,6 @@ export default function Register(props) {
               required
               value={lastName}
               onChange={(event) => {
-                console.log(event.target.value, "LAST NAME");
                 setLastName(event.target.value);
               }}
             />
@@ -159,19 +163,19 @@ export default function Register(props) {
               required
               value={address}
               onChange={(event) => {
-                console.log(event.target.value, "ADDRESS");
                 setAddress(event.target.value);
               }}
             />
           </div>
         </>
 
-        <button type="submit" className="registerbtn">
+        <button type="submit" className="submit-button">
           Register
         </button>
       </div>
-
-      <div className="container signin">
+      <div className="registerUserName">{error}</div>
+      
+      <div className="container-signin">
         <p>
           Already have an account? <a href="/login">Sign in</a>
         </p>

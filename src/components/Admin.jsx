@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { getAllUsers } from "../api/users";
+import { Link, useHistory } from "react-router-dom";
+
+// export default function adminPage(props) {
+//   const { isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin } = props;
+//   // let history = useHistory();
+
+
+
+// }
 
 export default function Admin() {
   const [users, setUsers] = useState([]);
@@ -21,14 +30,13 @@ export default function Admin() {
               const { id, username, first_name, last_name, email, address } =
                 user;
               return (
-                <div key={user.id}>
-                  className="products_page"
+                <div className="space_list" key={user.id}>
                   <p>
-                    {first_name} {last_name}
+                    Customer Name: {first_name} {last_name}
                   </p>
-                  <p>{username}</p>
-                  <p>{email}</p>
-                  <p>{address}</p>
+                  <p>Username: {username}</p>
+                  <p>Email Address: {email}</p>
+                  <p>Mailing Address: {address}</p>
                 </div>
               );
             })

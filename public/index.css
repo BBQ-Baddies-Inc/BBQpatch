@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300");
+
 /* BODY */
 
 body {
@@ -5,6 +7,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: rgb(0, 0, 0);
+  font-family: "Montserrat", sans-serif;
 }
 
 body .welcome {
@@ -41,7 +44,7 @@ body .welcome {
   flex-direction: column;
   flex-wrap: wrap;
   margin-top: 2rem;
-  
+  padding-left: 2rem;
 }
 
 .login-form .login-container button {
@@ -58,19 +61,19 @@ body .welcome {
 
 .login-container .passwordLogin {
   margin-bottom: 1rem;
-  color: white
+  color: white;
 }
 
 .login-container .passwordLogin label {
   margin-right: 1rem;
-  color: white
+  color: white;
 }
 
 /* REGISTER */
 
 .container .registerUsername label {
   margin-right: 1rem;
-  color: white
+  color: white;
 }
 
 .container button {
@@ -122,34 +125,30 @@ p {
   line-height: 17px;
   color: #ffffff;
   background-color: #141416;
-  ;
 }
 
 .card_positions {
   display: grid;
   grid-template-columns: 20rem 20rem 20rem;
-  grid-template-rows: 25rem 25rem 25rem; 
+  grid-template-rows: 25rem 25rem 25rem;
   column-gap: 20px;
   row-gap: 3rem;
-
 }
 
 .products_page {
- display: flex;
- flex-direction: row;
- align-content: center;
- justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
 
-.productButtons{
+.productButtons {
   display: flex;
   flex-direction: row;
   align-self: center;
   justify-self: flex-end;
   vertical-align: bottom;
 }
-
-
 
 /*LANDING PAGE CSS*/
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
@@ -179,14 +178,43 @@ p {
   box-sizing: border-box;
 }
 
-:root { 
+:root {
   --black: #000000;
   --white: #ffffff;
- 
+
   --font-size-l: 18px;
   --font-size-m: 14px;
   --font-size-xxxl: 72px;
- 
+
   --font-family-montserrat: "Montserrat", Helvetica;
   --font-family-mr_dafoe: "Mr Dafoe", Helvetica;
+}
+
+.container-signin {
+  padding-top: 3rem;
+}
+
+.registerUserName {
+  color: white;
+}
+
+.login-container {
+  color: white;
+  padding-top: 0.5rem;
+}
+
+.checkbox {
+  padding-left: 1rem;
+}
+
+.submit-button {
+  padding: 0.12rem;
+}
+
+.admin_user {
+  padding: 1rem;
+}
+
+.space_list {
+  padding-bottom: 0.5rem;
 }
