@@ -11,6 +11,7 @@ import {
   Admin,
   LandingScreen,
   Cart,
+  MainProductPage
 } from "./components";
 import { Switch, Route } from "react-router";
 
@@ -86,6 +87,14 @@ const App = () => {
         <Route path="/cart">
           <Cart productId={productId} />
         </Route>
+        <Route path="/product/:id">
+          <MainProductPage
+            products={products}
+            setProducts={setProducts}
+            productId={productId}
+            setProductId={setProductId}
+          />
+        </Route>
         <Route path="/">
           <LandingScreen
             products={products}
@@ -97,6 +106,7 @@ const App = () => {
             fromThePatch="from the patch"
           />
         </Route>
+        
       </Switch>
     </div>
   );
