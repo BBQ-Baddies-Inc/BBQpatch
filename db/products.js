@@ -29,6 +29,8 @@ async function getAllProducts() {
   }
 }
 
+//create get product by Id
+
 module.exports = {
   createProduct,
   getAllProducts,

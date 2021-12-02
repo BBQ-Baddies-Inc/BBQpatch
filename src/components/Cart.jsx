@@ -4,6 +4,7 @@ export default function Cart(props) {
   const {productId, setProductId} = props
 console.log("5")
   return (
+      
     <div className="container-center-horizontal">
       <div className="cart screen"> 
         <h1 className="title montserrat-semi-bold-white-36px">Cart</h1>

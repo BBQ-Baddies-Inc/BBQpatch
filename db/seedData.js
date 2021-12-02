@@ -53,11 +53,17 @@ async function dropTables() {
   category VARCHAR(255) NOT NULL
       );
   CREATE TABLE cart(
+    id SERIAL PRIMARY KEY,
     "userId" INTEGER REFERENCES users(id),
-    "productId" INTEGER REFERENCES products(id),
-    quantity INTEGER NOT NULL,
     "paidFor" BOOLEAN DEFAULT FALSE
+  );
+  CREATE TABLE cart-item(
+    id SERIAL PRIMARY KEY,
+    quantity INTEGER NOT NULL,
+    "productId" INTEGER REFERENCES products(id),
+    "cartId" INTEGER REFERENCES cart(id),
   )    
+
 
       `);
   
