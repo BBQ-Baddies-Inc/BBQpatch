@@ -2,6 +2,11 @@
 
 /* BODY */
 
+* {
+  box-sizing: border-box;
+}
+
+
 body {
   display: flex;
   flex-direction: column;
@@ -217,4 +222,97 @@ p {
 
 .space_list {
   padding-bottom: 0.5rem;
+/*Cart*/
+
+.cart {
+  align-items: flex-end;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  height: 1407px;
+  overflow: hidden;
+  padding: 85px 0;
+  width: 1440px;
+}
+
+.title {
+  align-self: center;
+  letter-spacing: 0;
+  margin-right: 465.0px;
+  min-height: 47px;
+  width: 209px;
+}
+
+.flex-row {
+  align-items: flex-end;
+  display: flex;
+  margin-right: -295.0px;
+  margin-top: 15px;
+  min-width: 1571px;
+}
+
+.overlap-group {
+  height: 1208px;
+  position: relative;
+  width: 1087px;
+}
+
+.vector {
+  height: 590px;
+  left: 364px;
+  position: absolute;
+  top: 5px;
+  width: 723px;
+}
+
+.vector-1 {
+  height: 582px;
+  left: 0;
+  position: absolute;
+  top: 626px;
+  width: 593px;
+}
+
+.group-26 {
+  background-color: rgb(39, 39, 39);
+  height: 1171px;
+  left: 220px;
+  position: absolute;
+  top: 0;
+  width: 673px;
+}
+
+.rectangle-4 {
+  height: 58px;
+  margin-bottom: 233.67px;
+  margin-left: 354px;
+  width: 130px;
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600");
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+.montserrat-semi-bold-white-36px {
+  color: var(--white);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 600;
 }

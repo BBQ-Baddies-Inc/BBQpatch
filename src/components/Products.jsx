@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getProducts } from "../api/products";
 
 export default function Products(props) {
-  const { products, setProducts } = props;
+  const { products, setProducts, setProductId } = props;
 
   const fetchAllProducts = async () => {
     const allProducts = await getProducts();
@@ -18,12 +18,12 @@ export default function Products(props) {
   console.log(products);
   return (
     <div>
-      <h1>Products</h1>
+      <h1 className="title montserrat-semi-bold-white-36px">Products</h1>
       <div className="products_page">
         <div className="card_positions">
           {products && products.length
             ? products.map((product) => {
-                const { name, price, description, photo } = product;
+                const { name, price, description, photo, id } = product;
                 return (
                   <Card style={{ width: "18rem" }}>
                     <Card.Img src={photo} />
@@ -35,12 +35,16 @@ export default function Products(props) {
                       <form className="productButtons">
                         <input
                           type="number"
-                          // placeholder=“quantity-of-products”
+                        placeholder = "1"
                           min="1"
                           max="10"
                         ></input>
                         <Link to={`/cart`}>
-                          <button>Add To Cart</button>
+                          <button className="addToCart-button"
+                  onClick={(event) => {
+                    setProductId("");
+                    setProductId(id);
+                  }}>Add To Cart</button>
                         </Link>
                       </form>
                     </Card.Body>
