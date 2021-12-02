@@ -4,7 +4,7 @@ import { loginUser, getAllUsers } from "../api/users";
 import { storeToken, storeUserName } from "../auth";
 
 export default function Login(props) {
-  const { userName, isLoggedIn, setUserName, setIsAdmin, setIsLoggedIn } =
+  const { userName, isLoggedIn, setUserName, setIsAdmin, setIsLoggedIn, setUserId } =
     props;
   const [password, setPassword] = useState("");
   const [adminUsers, setAdminUsers] = useState([]);
@@ -17,18 +17,7 @@ export default function Login(props) {
     fetchAllUsers();
   }, []);
 
-  // function administrator () {
-  //   const ADMINLIST = [];
-  //   const ADMIN = adminUsers.filter((user) => user.admin === true);
-    
-  //   ADMIN.map((admin) => {
-    
-  //     ADMINLIST.push(admin.username)
-      
-  //   });
-  //   return
-  // }
-
+ 
   if (!isLoggedIn) {
     return (
       <form
@@ -46,7 +35,7 @@ export default function Login(props) {
             storeUserName(userName);
             setIsLoggedIn(true);
             setPassword("");
-            // console.
+            
             if(results.user.admin){
               setIsAdmin(true)
             }

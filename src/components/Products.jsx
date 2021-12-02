@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { Link, useHistory } from "react-router-dom";
 import { getProducts } from "../api/products";
+import { storeToken, storeUserName, storeUserId } from "../auth";
 
 export default function Products(props) {
   const { products, setProducts, setProductId } = props;
@@ -47,8 +48,8 @@ export default function Products(props) {
                           className="addToCart-button"
                           onClick={async() => {
                             try {
-const ADDTOCART = await 
-                              setProductId(id);
+                              const ADDTOCART = await 
+                             
                             history.push("/cart");
                             } catch (error) {
                               
