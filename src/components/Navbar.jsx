@@ -10,7 +10,7 @@ export default function Navbar(props) {
   // useEffect(async () => {
 
   // }, []);
-console.log(isAdmin, "ADMIN")
+
   return (
     <nav className="navbar">
       <div>
