@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { registerUser } from "../api/users";
-import { storeToken, storeUserName } from "../auth";
+import { storeToken, storeUserName, storeUserId } from "../auth";
 
 export default function Register(props) {
   const {
@@ -37,14 +37,12 @@ export default function Register(props) {
           );
 
           storeToken(results.token);
-
+          console.log(results.user.id)
+          storeUserId(results.user.id)
           setIsLoggedIn(true);
           storeUserName(userName);
-          setUserName("");
-          setPassword("");
-          setUserName("");
-          setEmailAddress("");
-          setAddress("");
+
+          
 
           alert("You are registered!");
         } catch (error) {
