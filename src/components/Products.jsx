@@ -26,8 +26,10 @@ export default function Products(props) {
             ? products.map((product) => {
                 const { name, price, description, photo, id } = product;
                 return (
-                  <Card style={{ width: "18rem" }}>
-                    <Card.Img src={photo} />
+                  <Card key={`${name}:${id}`} style={{ width: "18rem" }}>
+                   <Link onClick={(event)=>{
+                     setProductId(id);
+                   }} to={`/product/${id}`}> <Card.Img src={photo} /> </Link>
                     <Card.Body>
                       <Card.Title>{name}</Card.Title>
                       <Card.Text>{description}</Card.Text>

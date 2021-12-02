@@ -61,7 +61,7 @@ export default function Login(props) {
       >
         <h1 className="login-title">
           {" "}
-          <span>Athelete Login</span>
+          <span>Login</span>
         </h1>
         <div className="imgcontainer">
           <i className="far fa-user fa-5x"></i>
@@ -104,8 +104,9 @@ export default function Login(props) {
           <label className="checkbox">
             <input type="checkbox" name="remember" /> Remember me
           </label>
-          Have you created an Account?<a href="/register"> Sign up here.</a>
+          
         </div>
+        <div className="login-container">Have you created an Account?  <a href="/register">Sign up here.</a></div>
       </form>
     );
   } else {

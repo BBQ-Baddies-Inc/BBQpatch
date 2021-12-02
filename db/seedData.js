@@ -50,7 +50,8 @@ async function dropTables() {
   price DECIMAL(10,2) NOT NULL,
   stock_data INTEGER NOT NULL,
   photo text NOT NULL,
-  category VARCHAR(255) NOT NULL
+  category VARCHAR(255) NOT NULL,
+  main_Product_Photo text NOT NULL
       );
   CREATE TABLE cart(
     id SERIAL PRIMARY KEY,
