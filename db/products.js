@@ -31,6 +31,7 @@ async function getAllProducts() {
   }
 }
 
+
 async function getProductById(id) {
   try {
     const { rows } = await client.query(`
@@ -83,6 +84,7 @@ async function removeProduct(id) {
     throw error;
   }
 }
+
 
 module.exports = {
   createProduct,

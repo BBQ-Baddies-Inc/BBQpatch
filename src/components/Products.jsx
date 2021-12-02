@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getProducts } from "../api/products";
 
 export default function Products(props) {
   const { products, setProducts, setProductId } = props;
+  let history = useHistory();
 
   const fetchAllProducts = async () => {
     const allProducts = await getProducts();
@@ -37,17 +38,26 @@ export default function Products(props) {
                       <form className="productButtons">
                         <input
                           type="number"
-                        placeholder = "1"
+                          placeholder="1"
                           min="1"
                           max="10"
                         ></input>
-                        <Link to={`/cart`}>
-                          <button className="addToCart-button"
-                  onClick={(event) => {
-                    setProductId("");
-                    setProductId(id);
-                  }}>Add To Cart</button>
-                        </Link>
+
+                        <button
+                          className="addToCart-button"
+                          onClick={async() => {
+                            try {
+const ADDTOCART = await 
+                              setProductId(id);
+                            history.push("/cart");
+                            } catch (error) {
+                              
+                            }
+                            
+                          }}
+                        >
+                          Add To Cart
+                        </button>
                       </form>
                     </Card.Body>
                   </Card>
