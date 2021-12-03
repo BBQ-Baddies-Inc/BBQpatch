@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { clearCurrentToken, clearUserName} from "../auth";
+import { clearCurrentToken, clearUserName, clearUserId} from "../auth";
 
 export default function Navbar(props) {
   const { isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin } = props
@@ -43,6 +43,7 @@ export default function Navbar(props) {
                 event.preventDefault();
                 clearCurrentToken();
                 clearUserName();
+                clearUserId();
                 setIsLoggedIn(false);
                 setIsAdmin(false)
                 history.push("/login")

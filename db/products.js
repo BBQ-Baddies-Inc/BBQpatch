@@ -20,11 +20,9 @@ async function createProduct({ name, price, category, photo, description, stock_
 
 async function getAllProducts() {
   try {
-    console.log("in all products");
     const { rows } = await client.query(`
             SELECT * FROM products;
         `);
-    console.log(rows, "hopefully products");
     return rows;
   } catch (error) {
     throw error;

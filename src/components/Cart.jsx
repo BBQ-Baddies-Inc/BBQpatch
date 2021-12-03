@@ -1,8 +1,18 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
+import { getCart } from "../api/cart"
+import { getUserId } from '../auth'
 
 export default function Cart(props) {
   const {productId, setProductId} = props
+  const [cart, setCart] = useState([]);
 console.log("5")
+
+useEffect(async() => {
+    const userId = getUserId();
+    const cart = await getCart(userId)
+ setCart(cart)
+    console.log(cart, "cart")
+}, [])
   return (
       
     <div className="container-center-horizontal">
@@ -20,7 +30,9 @@ console.log("5")
               src="https://anima-uploads.s3.amazonaws.com/projects/61a27368a28b3fe153421fed/releases/61a5930edd0b318d6e94a1bf/img/vector-1@1x.svg"
               alt="ketchup"
             />
-            <div className="group-26"></div>
+            <div className="group-26">{}
+
+            </div>
           </div>
           <img
             className="rectangle-4"
