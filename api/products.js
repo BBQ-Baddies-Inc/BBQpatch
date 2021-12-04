@@ -24,21 +24,40 @@ productRouter.get("/", async (req, res, next) => {
 
 //UPDATE put or Patch
 productRouter.put("/", isAdmin, async (req, res, next) => {
-    try {
-        const { id, name, price, category, photo, description, stock_data } = req.body;
-        if (!id || !name || !price || !category || !photo || !description || !stock_data) {
-          next({
-            message: "Missing Information",
-          });
-        }else {
-            const productFound = await getProductById(id);
-            if (!productFound.length) {
-              next({
-                message: "Product Does Not Exist",
-              });
-            }else{
-    const updatedProduct = await updateProduct({ id, name, price, category, photo, description, stock_data });
-    res.send(updatedProduct)}};
+  try {
+    const { id, name, price, category, photo, description, stock_data } =
+      req.body;
+    if (
+      !id ||
+      !name ||
+      !price ||
+      !category ||
+      !photo ||
+      !description ||
+      !stock_data
+    ) {
+      next({
+        message: "Missing Information",
+      });
+    } else {
+      const productFound = await getProductById(id);
+      if (!productFound.length) {
+        next({
+          message: "Product Does Not Exist",
+        });
+      } else {
+        const updatedProduct = await updateProduct({
+          id,
+          name,
+          price,
+          category,
+          photo,
+          description,
+          stock_data,
+        });
+        res.send(updatedProduct);
+      }
+    }
   } catch (error) {
     next(error);
   }

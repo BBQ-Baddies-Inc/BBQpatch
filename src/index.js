@@ -11,6 +11,7 @@ import {
   Admin,
   LandingScreen,
   Cart,
+  MainProductPage
 } from "./components";
 import { Switch, Route } from "react-router";
 
@@ -25,7 +26,7 @@ const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [products, setProducts] = useState([]);
   const [productId, setProductId] = useState("");
-  const [userId, setUserId] = useState("");
+  
 
   useEffect(() => {
     const TOKEN = getToken();
@@ -50,9 +51,6 @@ const App = () => {
             setIsLoggedIn={setIsLoggedIn}
             isLoggedIn={isLoggedIn}
             setIsAdmin={setIsAdmin}
-
-            userId={userId}
-            setUserId={setUserId}
           />
         </Route>
         <Route path="/register">
@@ -86,6 +84,14 @@ const App = () => {
         <Route path="/cart">
           <Cart productId={productId} />
         </Route>
+        <Route path="/product/:id">
+          <MainProductPage
+            products={products}
+            setProducts={setProducts}
+            productId={productId}
+            setProductId={setProductId}
+          />
+        </Route>
         <Route path="/">
           <LandingScreen
             products={products}
@@ -97,6 +103,7 @@ const App = () => {
             fromThePatch="from the patch"
           />
         </Route>
+        
       </Switch>
     </div>
   );

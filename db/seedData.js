@@ -50,14 +50,21 @@ async function dropTables() {
   price DECIMAL(10,2) NOT NULL,
   stock_data INTEGER NOT NULL,
   photo text NOT NULL,
-  category VARCHAR(255) NOT NULL
+  category VARCHAR(255) NOT NULL,
+  main_Product_Photo text NOT NULL
       );
   CREATE TABLE cart(
+    id SERIAL PRIMARY KEY,
     "userId" INTEGER REFERENCES users(id),
-    "productId" INTEGER REFERENCES products(id),
-    quantity INTEGER NOT NULL,
     "paidFor" BOOLEAN DEFAULT FALSE
-  )    
+  );
+  CREATE TABLE cart_item(
+    id SERIAL PRIMARY KEY,
+    quantity INTEGER NOT NULL,
+    "productId" INTEGER REFERENCES products(id),
+    "cartId" INTEGER REFERENCES cart(id)
+  );    
+
 
       `);
   

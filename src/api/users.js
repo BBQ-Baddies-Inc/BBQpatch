@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { getToken } from '../auth';
+import {BASE} from "./cart"
 
-export const BASE = "http://localhost:5000/api/users"; //we will have to adjust to heroku......fitnesstrackerfront
+const userBASE = `${BASE}/users`; //we will have to adjust to heroku......fitnesstrackerfront
 
 export async function registerUser(username, password) {
   try {
-    const {data} = await axios.post(`${BASE}/register`, {
+    const {data} = await axios.post(`${userBASE}/register`, {
       username,
       password,
     });
@@ -20,7 +21,7 @@ export async function registerUser(username, password) {
 
 export async function loginUser(username, password) {
   try {
-    const response = await axios.post(`${BASE}/login`, {
+    const response = await axios.post(`${userBASE}/login`, {
       username,
       password,
     });
@@ -36,7 +37,7 @@ export async function getAllUsers(){
   const token = getToken();
 
 try{
-  const {data} = await axios.get(`${BASE}/`, {
+  const {data} = await axios.get(`${userBASE}/`, {
     headers: {Authorization: `Bearer ${token}`,
   "Content-Type": "application/json"}
   });

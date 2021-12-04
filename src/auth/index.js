@@ -8,7 +8,7 @@ export function getToken(){
     return myToken;
 }
 
-export function clearCurrentUser(){
+export function clearCurrentToken(){
     localStorage.removeItem('token');
 }
 
@@ -25,5 +25,20 @@ export function getUserName(){
 
 export function clearUserName(){
     localStorage.removeItem('username');
+}
+
+/*StoreUser*/
+
+export function storeUserId(id) {
+    localStorage.setItem('id', JSON.stringify(id));
+}
+
+export function getUserId(){
+    const myUserId = JSON.parse(localStorage.getItem('id'))
+    return myUserId;
+}
+
+export function clearUserId(){
+    localStorage.removeItem('id');
 }
 

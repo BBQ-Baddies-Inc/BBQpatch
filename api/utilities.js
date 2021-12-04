@@ -10,6 +10,7 @@ const requireUser = (req, res, next) => {
 
 const isAdmin = async (req, res, next) => {
   if (req.headers && req.headers.authorization) {
+    console.log(req.user, "USER")
     if (!req.user || !req.user.admin) {
       return res
         .status(403)

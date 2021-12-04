@@ -6,7 +6,8 @@
         "photo":"/assets/burger.png",
         "description": "Our burgers are prepared with prime cuts and steak trimmings, salt & pepper, so that you can really taste that BBQ Baddies flavour.",
         "stock_data": 100,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/BurgerBlob.png"
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "photo":"/assets/KababKit.png",
         "description": "Our pre-marinated Kabab Kits can be cooked in any domestic grill! Yum!",
         "stock_data": 200,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/KababBlob.png"
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "photo":"/assets/SasuageKit.png",
         "description": "This charcuterie is all made in-house by Cochon Butcher, a hybrid New Orleans. Best house-made charcuterie and creative sandwiches.",
         "stock_data": 300,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/SasuageBlob.png"
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "photo":"/assets/ChickenWings.png",
         "description": "A marinade wing based on Turkish hot pepper paste infuses them with roasted-chile flavor.",
         "stock_data": 100,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/ChickenWingsBlob.png"
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "photo":"/assets/ChickenNuggets.png",
         "description": "Our chicken nuggets are made with the finest quality chicken, and are prepared with a special sauce that is made with the finest quality of spices.",
         "stock_data": 100,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/ChickenNuggetsBlob.png"
     },
     {
         "id": 6,
@@ -51,7 +56,8 @@
         "photo":"/assets/BBQRibs.png",
         "description": "Our BBQ ribs are made with the finest quality of pork meat, and are prepared with a special sauce that is made with the finest quality of spices.",
         "stock_data": 100,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/BBQRibsBlob.png"
     },
     {
         "id": 7,
@@ -60,7 +66,8 @@
         "photo":"/assets/BBQBeans.png",
         "description": "Our BBQ beans are made with the finest quality of beans, and are prepared with a special sauce that is made with the finest quality of spices.",
         "stock_data": 100,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/BBQBeansBlob.png"
     },
     {
         "id": 8,
@@ -69,7 +76,8 @@
         "photo":"/assets/BBQSauce.png",
         "description": "Our BBQ sauce is made with the finest quality of spices, and is prepared with a special sauce that is made with the finest quality of spices.",
         "stock_data": 100,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/BBQSauceBlob.png"
     },
     {
         "id": 9,
@@ -78,7 +86,8 @@
         "photo":"/assets/MashedPotatoes.png",
         "description": "Our mashed potatoes are made with the finest quality of potatoes, and are prepared with a special sauce that is made with the finest quality of spices.",
         "stock_data": 100,
-        "category": "Kits"
+        "category": "Kits",
+        "main_Product_Photo": "/assets/MashedPotatoesBlob.png"
     }
 ]
     
