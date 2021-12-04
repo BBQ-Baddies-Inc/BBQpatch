@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { getToken } from '../auth';
 
-export const BASE = "http://localhost:5000/api"
-// export const BASE = "https://fathomless-sea-11187.herokuapp.com/api"
+// export const BASE = "http://localhost:5000/api"
+export const BASE = "https://fathomless-sea-11187.herokuapp.com/api"
 
 export async function addToCart(productId, userId, quantity){
     const {data} = await axios.post(`${BASE}/cart`,{productId, userId, quantity});
