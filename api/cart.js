@@ -2,7 +2,7 @@ const express = require("express");
 const cartRouter = express.Router();
 
 const jwt = require("jsonwebtoken");
-const { addToCart, getCart } = require("../db");
+const { addToCart, getCart, destroyCartItem } = require("../db");
 const { JWT_SECRET = "neverTell" } = process.env;
 const {requireUser} = require("./utilities");
 
@@ -39,5 +39,31 @@ cartRouter.get("/", requireUser, async (req, res, next) => {
     next(error);
   }
 });
+
+cartRouter.delete("/", requireUser, async (req, res, next) => {
+    const { id: userId } = req.user;
+    const { productId } = req.body
+    console.log(req.params)
+    try {
+
+        const [{cartId: currentCart}] = await getCart(userId);
+    console.log(currentCart, "currentCart backend api")
+            const deletedItem = await destroyCartItem(productId, currentCart);
+            console.log(deletedItem, "DELETED!")
+            if(deletedItem){
+                res.send(deletedItem);
+            } else {
+                next({
+                    name: 'Cannot Delete',
+                    message: 'Permission not granted',
+                });
+            }
+        
+    } catch ({ name, message }) {
+        next({ name, message });
+    }
+});
+
+
 
 module.exports = cartRouter;

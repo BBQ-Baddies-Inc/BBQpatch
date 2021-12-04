@@ -69,8 +69,28 @@ async function getCart(id) {
 //quantity update
 
 //remove item
+async function destroyCartItem(productId, currentCart) {
+    console.log(currentCart, productId, "db before query")
+    try {
+      const {
+        rows: [deletedCart],
+      } = await client.query(
+        `DELETE 
+        FROM cart_item
+        WHERE "productId"=$1 AND "cartId" =$2
+        RETURNING *;`,
+        [productId, currentCart]
+      );
+      console.log(deletedCart, "hopefully cart");
+      return deletedCart;
+    } catch (error) {
+        console.log(error)
+      throw error;
+    }
+  }
 
 module.exports = {
   addToCart,
   getCart,
+  destroyCartItem
 };
