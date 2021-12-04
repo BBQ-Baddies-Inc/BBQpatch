@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getCart } from "../api/cart";
+import { getCart, deleteCartItem } from "../api/cart";
 import { getUserId } from "../auth";
-
+import { useHistory } from "react-router";
 
 export default function Cart(props) {
   const { setProductId } = props;
   const [cart, setCart] = useState([]);
+  let history = useHistory();
   console.log("5");
 
   useEffect(() => {
@@ -14,17 +15,15 @@ export default function Cart(props) {
       const userId = getUserId();
       const cart = await getCart(userId);
 
-      const itemsSeen = {}
-      for(let i=0; i < cart.length; i++){
-          
-if (itemsSeen[cart[i].productId]){
-    itemsSeen[cart[i].productId].quantity += cart[i].quantity
-} else {
-    itemsSeen[cart[i].productId] = cart[i]
-}
+      const itemsSeen = {};
+      for (let i = 0; i < cart.length; i++) {
+        if (itemsSeen[cart[i].productId]) {
+          itemsSeen[cart[i].productId].quantity += cart[i].quantity;
+        } else {
+          itemsSeen[cart[i].productId] = cart[i];
+        }
       }
       setCart(Object.values(itemsSeen));
-      
     }
     fetchData();
   }, []);
@@ -33,9 +32,14 @@ if (itemsSeen[cart[i].productId]){
     <div className="container-center-horizontal">
       <div className="cart screen">
         <h1 className="title montserrat-semi-bold-white-36px">Cart</h1>
-        <Link className="buyNow-button" onClick={(event) => {}}
-                      to={`/checkout`}
-                    > Buy Now </Link>
+        <Link
+          className="buyNow-button"
+          onClick={(event) => {}}
+          to={`/checkout`}
+        >
+          {" "}
+          Buy Now{" "}
+        </Link>
         <div className="flex-row">
           <div className="overlap-group">
             <img
@@ -50,9 +54,14 @@ if (itemsSeen[cart[i].productId]){
             />
             <div className="group-26">
               {cart.map((item) => {
-                  const {name, productId, photo, description, price, quantity} = item
+                const { name, productId, photo, description, price, quantity } =
+                  item;
                 return (
-                    <div className="cart-product" key={`${name}:${productId}`} style={{ width: "18rem" }}>
+                  <div
+                    className="cart-product"
+                    key={`${name}:${productId}`}
+                    style={{ width: "18rem" }}
+                  >
                     <Link
                       onClick={(event) => {
                         setProductId(productId);
@@ -68,29 +77,26 @@ if (itemsSeen[cart[i].productId]){
                       <p className="cart-price">{price}</p>
                       <p className="cart-quanity">Quantity: {quantity}</p>
                       <button
-                          className="cart-button"
-                          onClick={async (event) => {
-                            event.preventDefault();
-                            try {
-                            //   const userId = getUserId();
-                            //   console.log(quantity)
-                            //   const ADDTOCART = await addToCart(
-                            //     id,
-                            //     userId,
-                            //     quantity
-                            //   );
-                            //   console.log(ADDTOCART, "front end ");
-                            //   history.push("/cart");
-                            } catch (error) {
-                                console.log(error)
-                            }
-                          }}
-                        >
-                          Remove Item
-                        </button>
+                        className="cart-button"
+                        onClick={async (event) => {
+                          event.preventDefault();
+                          try {
+                            
+                            const removeitem = await deleteCartItem(productId);
+                            console.log(removeitem, "front end ");
+                        
+                            const newCart = cart.filter(item=>item.productId !== removeitem.productId)
+                            setCart(newCart);
+                          } catch (error) {
+                            console.log(error);
+                          }
+                        }}
+                      >
+                        Remove Item
+                      </button>
                     </div>
                   </div>
-              )
+                );
               })}
             </div>
           </div>

@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./Desktop6.css";
 // import "./globals.css"
 import { Link } from "react-router-dom";
-// import { getProducts } from "../api/products";
+import { getUserId } from "../auth";
+import { addToCart } from "../api/cart";
+import { useHistory } from "react-router";
 
 export default function MainProductPage(props) {
   const { products, productId, setProductId } = props;
+  const [quantity, setQuantity] = useState(0);
+  let history = useHistory();
   console.log(products);
   // filter out products that I want to display(the id of the product is the same as the id of the product in the database) 3
   // grab the id, use the props hook, grab the product from the id, and display the product 2
@@ -13,16 +17,22 @@ export default function MainProductPage(props) {
   return (
     <>
       {products && products.length && productId
-        ? products.map((product) => {
+        ? products.map((product, indx) => {
             const { name, price, id, description, main_product_photo } =
               product;
             console.log(main_product_photo);
             if (id === productId) {
               return (
-                <div className="container-center-horizontal">
+                <div
+                  className="container-center-horizontal"
+                  key={`product-${indx}`}
+                >
                   <div className="desktop-6 screen">
                     <div className="overlap-group4">
-                      <h1 className="title montserrat-semi-bold-white-36px" style={{  }}>
+                      <h1
+                        className="title montserrat-semi-bold-white-36px"
+                        style={{}}
+                      >
                         {name}
                       </h1>
                       <div className="group-container">
@@ -40,26 +50,36 @@ export default function MainProductPage(props) {
                             <div className="overlap-group-container">
                               <div className="overlap-group1 border-2px-sonic-silver">
                                 <input
-                                  className="text-1 valign-text-middle"
                                   type="number"
                                   placeholder="1"
                                   min="1"
                                   max="10"
+                                  value={quantity}
+                                  onChange={(event) => {
+                                    setQuantity(event.target.value);
+                                  }}
                                 ></input>
                               </div>
                               <div className="overlap-group border-2px-sonic-silver">
-                                <Link to={`/cart`}>
-                                  <button className="buy-now valign-text-middle"
-                            
-                                    onClick={(event) => {
-                                      setProductId("");
-                                      setProductId(id);
-                                    }}
-                                  >
-                                    Add To Cart
-                                  </button>
-                                </Link>
-                               
+                                <button
+                                  className="addToCart-button"
+                                  onClick={async (event) => {
+                                    event.preventDefault();
+                                    try {
+                                      const userId = getUserId();
+                                      console.log(quantity);
+                                      const ADDTOCART = await addToCart(
+                                        id,
+                                        userId,
+                                        quantity
+                                      );
+                                      console.log(ADDTOCART, "front end ");
+                                      history.push("/cart");
+                                    } catch (error) {}
+                                  }}
+                                >
+                                  Add To Cart
+                                </button>
                               </div>
                             </div>
                           </div>
