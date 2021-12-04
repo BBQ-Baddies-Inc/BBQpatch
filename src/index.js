@@ -11,7 +11,8 @@ import {
   Admin,
   LandingScreen,
   Cart,
-  MainProductPage
+  MainProductPage,
+  Checkout
 } from "./components";
 import { Switch, Route } from "react-router";
 
@@ -83,6 +84,9 @@ const App = () => {
         </Route>
         <Route path="/cart">
           <Cart setProductId={setProductId} />
+        </Route>
+        <Route path="/checkout">
+          <Checkout />
         </Route>
         <Route path="/product/:id">
           <MainProductPage

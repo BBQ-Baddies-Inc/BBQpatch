@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { getCart } from "../api/cart";
 import { getUserId } from "../auth";
 
-export default function checkout(){
+export default function Checkout(){
 
     return(
         <div>
