@@ -22,7 +22,7 @@ export default function MainProductPage(props) {
                 <div className="container-center-horizontal">
                   <div className="desktop-6 screen">
                     <div className="overlap-group4">
-                      <h1 className="title montserrat-semi-bold-white-36px">
+                      <h1 className="title montserrat-semi-bold-white-36px" style={{  }}>
                         {name}
                       </h1>
                       <div className="group-container">
