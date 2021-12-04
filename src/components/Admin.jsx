@@ -6,8 +6,6 @@ import { Link, useHistory } from "react-router-dom";
 //   const { isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin } = props;
 //   // let history = useHistory();
 
-
-
 // }
 
 export default function Admin() {
