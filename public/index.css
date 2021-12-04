@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -215,6 +214,8 @@ p {
 .space_list {
   padding-bottom: 0.5rem;
 }
+
+
 /*Cart*/
 
 .cart-product {
@@ -227,7 +228,7 @@ p {
 .cart-name {
   align-self: center;
   letter-spacing: 0;
-  margin-right: 465.0px;
+  margin-right: 465px;
   min-height: 47px;
   width: 209px;
   background-color: honeydew;
@@ -236,7 +237,7 @@ p {
 /* .flex-row {
   align-items: flex-end;
   display: flex;
-  margin-right: -295.0px;
+  margin-right: -295px;
   margin-top: 15px;
   min-width: 1571px;
 } */
@@ -306,5 +307,6 @@ p {
   font-style: normal;
   font-weight: 600;
 }
+
 
 /* Cart */

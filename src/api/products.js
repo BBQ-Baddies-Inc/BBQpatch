@@ -1,12 +1,13 @@
 import axios from 'axios';
+import {BASE} from "./cart"
 // import { getToken } from '../auth';
-export const BASE = "http://localhost:5000/api/products"; //we will have to adjust to heroku......fitnesstrackerfront
+const productsBASE = `${BASE}/products`;//we will have to adjust to heroku......fitnesstrackerfront
 
 
 export async function getProducts() {
   try {
     console.log("hello")
-    const {data} = await axios.get(`${BASE}/`);
+    const {data} = await axios.get(`${productsBASE}/products`);
             console.log(data)
     return data.products;
   } catch (err) {
@@ -17,7 +18,7 @@ export async function getProducts() {
 // export async function addProducts(){
 //   const token = getToken();
 //   try{
-//     const {data} = await axios.post(`${BASE}/products`, {
+//     const {data} = await axios.post(`${productsBASE}/products`, {
 //       // name: name,
 //       // description: description,
 //     },
