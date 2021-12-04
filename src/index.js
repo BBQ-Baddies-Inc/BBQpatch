@@ -82,7 +82,7 @@ const App = () => {
           <Admin />
         </Route>
         <Route path="/cart">
-          <Cart productId={productId} />
+          <Cart setProductId={setProductId} />
         </Route>
         <Route path="/product/:id">
           <MainProductPage
