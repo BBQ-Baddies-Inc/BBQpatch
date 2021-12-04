@@ -30,6 +30,7 @@ export default function Products(props) {
                 const { name, price, description, photo, id } = product;
                 return (
                   <Card key={`${name}:${id}`} style={{ width: "20rem" }}>
+
                     <Link
                       onClick={(event) => {
                         setProductId(id);
@@ -39,6 +40,7 @@ export default function Products(props) {
                       {" "}
                       <Card.Img src={photo} style={{ width: "17rem" }} />{" "}
                     </Link>
+
 
                     <Card.Body>
                       <Card.Title>{name}</Card.Title>
