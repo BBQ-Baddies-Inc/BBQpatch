@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { Link, useHistory } from "react-router-dom";
+import { addToCart } from "../api/cart";
 import { getProducts } from "../api/products";
+import { storeToken, storeUserName, storeUserId, getUserId } from "../auth";
 
 export default function Products(props) {
   const { products, setProducts, setProductId } = props;
+  const [quantity, setQuantity] = useState(0);
   let history = useHistory();
 
   const fetchAllProducts = async () => {
@@ -27,9 +30,15 @@ export default function Products(props) {
                 const { name, price, description, photo, id } = product;
                 return (
                   <Card key={`${name}:${id}`} style={{ width: "18rem" }}>
-                   <Link onClick={(event)=>{
-                     setProductId(id);
-                   }} to={`/product/${id}`}> <Card.Img src={photo} /> </Link>
+                    <Link
+                      onClick={(event) => {
+                        setProductId(id);
+                      }}
+                      to={`/product/${id}`}
+                    >
+                      {" "}
+                      <Card.Img src={photo} />{" "}
+                    </Link>
                     <Card.Body>
                       <Card.Title>{name}</Card.Title>
                       <Card.Text>{description}</Card.Text>
@@ -41,19 +50,27 @@ export default function Products(props) {
                           placeholder="1"
                           min="1"
                           max="10"
+                          value={quantity}
+                          onChange={(event) => {
+                            setQuantity(event.target.value);
+                          }}
                         ></input>
 
                         <button
                           className="addToCart-button"
-                          onClick={async() => {
+                          onClick={async (event) => {
+                            event.preventDefault();
                             try {
-const ADDTOCART = await 
-                              setProductId(id);
-                            history.push("/cart");
-                            } catch (error) {
-                              
-                            }
-                            
+                              const userId = getUserId();
+                              console.log(quantity)
+                              const ADDTOCART = await addToCart(
+                                id,
+                                userId,
+                                quantity
+                              );
+                              console.log(ADDTOCART, "front end ");
+                              history.push("/cart");
+                            } catch (error) {}
                           }}
                         >
                           Add To Cart

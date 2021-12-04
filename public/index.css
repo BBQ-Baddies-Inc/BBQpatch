@@ -178,9 +178,6 @@ p {
   pointer-events: auto;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 :root {
   --black: #000000;
@@ -223,6 +220,9 @@ p {
   padding-bottom: 0.5rem;
 }
 
+
+/*Cart*/
+
 .cart {
   align-items: flex-end;
   background-color: var(--black);
@@ -242,13 +242,13 @@ p {
   width: 209px;
 }
 
-.flex-row {
+/* .flex-row {
   align-items: flex-end;
   display: flex;
   margin-right: -295px;
   margin-top: 15px;
   min-width: 1571px;
-}
+} */
 
 .overlap-group {
   height: 1208px;
@@ -318,7 +318,7 @@ p {
 
 /* Main Project Page */
 
-.desktop-6 {
+/* .desktop-6 {
   align-items: flex-start;
   background-color: var(--black);
   display: flex;
@@ -553,4 +553,4 @@ p {
 
 .border-2px-sonic-silver {
   border: 2px solid var(--sonic-silver);
-}
+} */
