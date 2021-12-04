@@ -8,7 +8,8 @@ const userRouter = require("./users");
 
 const {
   getUserById,
-} = require("../db")
+} = require("../db");
+const cartRouter = require("./cart");
 
 apiRouter.get('/health', async (req, res)=>{
   try{
@@ -47,6 +48,7 @@ apiRouter.use(async (req, res, next) => {
   }
 });
 
+apiRouter.use('/cart', cartRouter)
 apiRouter.use('/users', userRouter)
 apiRouter.use('/products', require("./products"))
 

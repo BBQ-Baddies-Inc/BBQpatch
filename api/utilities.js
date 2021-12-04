@@ -10,7 +10,8 @@ const requireUser = (req, res, next) => {
 
 const isAdmin = async (req, res, next) => {
   if (req.headers && req.headers.authorization) {
-    if (!req.user || !req.user.isAdmin) {
+    console.log(req.user, "USER")
+    if (!req.user || !req.user.admin) {
       return res
         .status(403)
         .json({ message: "You must have admin permissions" });

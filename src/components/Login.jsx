@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { loginUser, getAllUsers } from "../api/users";
-import { storeToken, storeUserName } from "../auth";
+import { storeToken, storeUserName, storeUserId } from "../auth";
 
 export default function Login(props) {
   const { userName, isLoggedIn, setUserName, setIsAdmin, setIsLoggedIn } =
@@ -17,18 +17,7 @@ export default function Login(props) {
     fetchAllUsers();
   }, []);
 
-  // function administrator () {
-  //   const ADMINLIST = [];
-  //   const ADMIN = adminUsers.filter((user) => user.admin === true);
-    
-  //   ADMIN.map((admin) => {
-    
-  //     ADMINLIST.push(admin.username)
-      
-  //   });
-  //   return
-  // }
-
+ 
   if (!isLoggedIn) {
     return (
       <form
@@ -46,7 +35,8 @@ export default function Login(props) {
             storeUserName(userName);
             setIsLoggedIn(true);
             setPassword("");
-            // console.
+           
+            storeUserId(results.user.id)
             if(results.user.admin){
               setIsAdmin(true)
             }

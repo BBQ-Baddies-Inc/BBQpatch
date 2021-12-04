@@ -26,7 +26,7 @@ const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [products, setProducts] = useState([]);
   const [productId, setProductId] = useState("");
-  const [userId, setUserId] = useState("");
+  
 
   useEffect(() => {
     const TOKEN = getToken();
@@ -51,9 +51,6 @@ const App = () => {
             setIsLoggedIn={setIsLoggedIn}
             isLoggedIn={isLoggedIn}
             setIsAdmin={setIsAdmin}
-
-            userId={userId}
-            setUserId={setUserId}
           />
         </Route>
         <Route path="/register">
@@ -85,7 +82,7 @@ const App = () => {
           <Admin />
         </Route>
         <Route path="/cart">
-          <Cart productId={productId} />
+          <Cart setProductId={setProductId} />
         </Route>
         <Route path="/product/:id">
           <MainProductPage
