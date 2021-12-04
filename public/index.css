@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -222,7 +221,7 @@ p {
 
 .space_list {
   padding-bottom: 0.5rem;
-/*Cart*/
+}
 
 .cart {
   align-items: flex-end;
@@ -238,7 +237,7 @@ p {
 .title {
   align-self: center;
   letter-spacing: 0;
-  margin-right: 465.0px;
+  margin-right: 465px;
   min-height: 47px;
   width: 209px;
 }
@@ -246,7 +245,7 @@ p {
 .flex-row {
   align-items: flex-end;
   display: flex;
-  margin-right: -295.0px;
+  margin-right: -295px;
   margin-top: 15px;
   min-width: 1571px;
 }
@@ -434,7 +433,7 @@ p {
   height: 590px;
   left: 671px;
   min-width: 723px;
-  padding: 30.6px 35.0px;
+  padding: 30.6px 35px;
   position: absolute;
   top: 82px;
 }
@@ -508,16 +507,16 @@ p {
   box-sizing: border-box;
 }
 
-:root { 
+:root {
   --black: #000000;
   --bunker: #141416;
   --silver: #c0c0c0;
   --sonic-silver: #767678;
   --white: #ffffff;
- 
+
   --font-size-m: 14px;
   --font-size-xxl: 36px;
- 
+
   --font-family-montserrat: "Montserrat", Helvetica;
 }
 .montserrat-semi-bold-silver-14px {
