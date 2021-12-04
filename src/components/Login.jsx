@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { loginUser, getAllUsers } from "../api/users";
-import { storeToken, storeUserName } from "../auth";
+import { storeToken, storeUserName, storeUserId } from "../auth";
 
 export default function Login(props) {
   const { userName, isLoggedIn, setUserName, setIsAdmin, setIsLoggedIn, setUserId } =
@@ -35,7 +35,7 @@ export default function Login(props) {
             storeUserName(userName);
             setIsLoggedIn(true);
             setPassword("");
-            
+            storeUserId(results.user.id)
             if(results.user.admin){
               setIsAdmin(true)
             }
