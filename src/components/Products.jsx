@@ -35,17 +35,6 @@ export default function Products(props) {
                      setProductId(id);
                    }} to={`/product/${id}`}> <Card.Img src={photo} style={{ width: "17rem" }} /> </Link>
 
-//                   <Card key={`${name}:${id}`} style={{ width: "18rem" }}>
-//                     <Link
-//                       onClick={(event) => {
-//                         setProductId(id);
-//                       }}
-//                       to={`/product/${id}`}
-//                     >
-//                       {" "}
-//                       <Card.Img src={photo} />{" "}
-//                     </Link>
-
                     <Card.Body>
                       <Card.Title>{name}</Card.Title>
                       <Card.Text>{description}</Card.Text>
