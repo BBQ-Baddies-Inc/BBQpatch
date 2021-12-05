@@ -6,9 +6,9 @@ const productsBASE = `${BASE}/products`;//we will have to adjust to heroku......
 
 export async function getProducts() {
   try {
-    console.log("hello")
+   
     const {data} = await axios.get(`${productsBASE}/`);
-            console.log(data)
+            
     return data.products;
   } catch (err) {
     console.log(err);

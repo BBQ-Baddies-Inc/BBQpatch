@@ -24,13 +24,10 @@ export default function Login(props) {
         className="login-form"
         onSubmit={async (event) => {
           event.preventDefault();
-          // if (ADMINLIST.includes(userName)) {
-          //   setIsAdmin(true);
-          // }
 
           try {
             const results = await loginUser(userName, password);
-            console.log(results, "!!!!!!");
+            
             storeToken(results.token);
             storeUserName(userName);
             setIsLoggedIn(true);
@@ -44,9 +41,7 @@ export default function Login(props) {
             alert(`${results.message}`);
           } catch (error) {
             console.log(error);
-          } finally {
-            //  await administrator();
-          }
+          } 
         }}
       >
         <h1 className="login-title">

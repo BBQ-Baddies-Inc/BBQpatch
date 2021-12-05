@@ -2,13 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import {
   MontserratLightWhite14px,
-  MontserratSemiBoldWhite14px
+  MontserratSemiBoldWhite14px,
 } from "../styledMixins";
 import "./Desktop5.css";
 
 function Desktop5(props) {
-  const { products, image5, text1, text2, title, fromThePatch } = props;
-  console.log(products);
+  const { image5, text1, text2, title, fromThePatch } = props;
 
   return (
     <div className="container-center-horizontal">

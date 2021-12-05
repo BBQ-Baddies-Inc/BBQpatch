@@ -13,9 +13,8 @@ const { JWT_SECRET = "neverTell" } = process.env;
 
 productRouter.get("/", async (req, res, next) => {
   try {
-    console.log("before products api");
     const PRODUCTS = await getAllProducts();
-    console.log(PRODUCTS, "here is backend API");
+
     res.send({ products: PRODUCTS });
   } catch (error) {
     next(error);

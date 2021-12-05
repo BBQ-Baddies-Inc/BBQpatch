@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.container-center-horizontal > * {
+.container-center-horizontal>* {
   flex-shrink: 0;
   pointer-events: auto;
 }
