@@ -8,7 +8,7 @@ export default function Cart(props) {
   const { setProductId } = props;
   const [cart, setCart] = useState([]);
   let history = useHistory();
-  console.log("5");
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -27,20 +27,25 @@ export default function Cart(props) {
     }
     fetchData();
   }, []);
-  console.log(cart, "cart");
+ 
   return (
     <div className="container-center-horizontal">
       <div className="cart screen">
-        <h1 className="title montserrat-semi-bold-white-36px">Cart</h1>
-        <Link
-          className="buyNow-button"
-          onClick={(event) => {}}
-          to={`/checkout`}
-        >
-          {" "}
-          Buy Now{" "}
-        </Link>
+      
+      
         <div className="flex-row">
+        <div className="cart-title">Cart
+      <button
+          className="buyNow-button"
+          onClick={async (event) => {
+            const course = window.confirm("Are you sure you wish to Purchase?");
+            if (course) {
+              event.preventDefault();
+              
+              history.push("./checkout");
+            }
+          }}
+        >Buy Now</button></div>
           <div className="overlap-group">
             <img
               className="vector"
@@ -69,9 +74,9 @@ export default function Cart(props) {
                       to={`/product/${productId}`}
                     >
                       {" "}
-                      <img src={photo} />{" "}
+                      <img className="cart-photo" src={photo} />{" "}
                     </Link>
-                    <div>
+                    <div className="cart-info">
                       <h2 className="cart-name">{name}</h2>
                       <p className="cart-description">{description}</p>
                       <p className="cart-price">{price}</p>
@@ -79,16 +84,25 @@ export default function Cart(props) {
                       <button
                         className="cart-button"
                         onClick={async (event) => {
-                          event.preventDefault();
-                          try {
-                            
-                            const removeitem = await deleteCartItem(productId);
-                            console.log(removeitem, "front end ");
-                        
-                            const newCart = cart.filter(item=>item.productId !== removeitem.productId)
-                            setCart(newCart);
-                          } catch (error) {
-                            console.log(error);
+                          const course = window.confirm(
+                            "Are you sure you wish to remove item?"
+                          );
+                          if (course) {
+                            event.preventDefault();
+                            try {
+                              const removeitem = await deleteCartItem(
+                                productId
+                              );
+                              
+
+                              const newCart = cart.filter(
+                                (item) =>
+                                  item.productId !== removeitem.productId
+                              );
+                              setCart(newCart);
+                            } catch (error) {
+                              console.log(error);
+                            }
                           }
                         }}
                       >
@@ -100,11 +114,7 @@ export default function Cart(props) {
               })}
             </div>
           </div>
-          <img
-            className="rectangle-4"
-            src="https://anima-uploads.s3.amazonaws.com/projects/61a27368a28b3fe153421fed/releases/61a2736d28635064dc202580/img/rectangle-4@2x.svg"
-            alt="blank"
-          />
+          
         </div>
       </div>
     </div>

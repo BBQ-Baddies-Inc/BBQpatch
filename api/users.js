@@ -9,10 +9,9 @@ const {
   getUserByUsername,
   getUser,
   getUserById,
-  getAllUsers
-  
+  getAllUsers,
 } = require("../db");
-const {requireUser, isAdmin} = require("./utilities");
+const { requireUser, isAdmin } = require("./utilities");
 
 userRouter.post("/register", async (req, res, next) => {
   const { username, password } = req.body;
@@ -74,22 +73,20 @@ userRouter.get("/me", requireUser, async (req, res, next) => {
   }
 });
 
-userRouter.get("/", isAdmin, async(req, res, next)=>{
-  try{
-    console.log(req.user)
-    if (req.user.admin){
-     const usersLists = await getAllUsers()
-     console.log(usersLists, "USER LIST")
-     res.send(usersLists)
-    }else{
+userRouter.get("/", isAdmin, async (req, res, next) => {
+  try {
+    if (req.user.admin) {
+      const usersLists = await getAllUsers();
+      console.log(usersLists, "USER LIST");
+      res.send(usersLists);
+    } else {
       next({
-        message: "You Are Unauthorized"
-      })
-    } 
-      
-  }catch(error){
-  next(error)
+        message: "You Are Unauthorized",
+      });
+    }
+  } catch (error) {
+    next(error);
   }
-})
+});
 
-module.exports = userRouter
+module.exports = userRouter;

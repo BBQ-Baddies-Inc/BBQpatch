@@ -4,6 +4,7 @@ import { getToken } from "./auth";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import {
+  Account,
   Login,
   Register,
   Navbar,
@@ -12,13 +13,12 @@ import {
   LandingScreen,
   Cart,
   MainProductPage,
-  Checkout
+  Checkout,
 } from "./components";
 import { Switch, Route } from "react-router";
 
 const App = () => {
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");
@@ -27,7 +27,6 @@ const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [products, setProducts] = useState([]);
   const [productId, setProductId] = useState("");
-  
 
   useEffect(() => {
     const TOKEN = getToken();
@@ -58,7 +57,6 @@ const App = () => {
           <Register
             userName={userName}
             setUserName={setUserName}
-
             firstName={firstName}
             setFirstName={setFirstName}
             lastName={lastName}
@@ -68,7 +66,6 @@ const App = () => {
             emailAddress={emailAddress}
             setEmailAddress={setEmailAddress}
             setIsLoggedIn={setIsLoggedIn}
-
           />
         </Route>
         <Route path="/products">
@@ -81,6 +78,9 @@ const App = () => {
 
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route path="/mybbq">
+          <Account />
         </Route>
         <Route path="/cart">
           <Cart setProductId={setProductId} />
@@ -107,7 +107,6 @@ const App = () => {
             fromThePatch="from the patch"
           />
         </Route>
-        
       </Switch>
     </div>
   );

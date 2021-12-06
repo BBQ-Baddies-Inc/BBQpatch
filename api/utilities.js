@@ -1,5 +1,4 @@
 const requireUser = (req, res, next) => {
-  console.log("users");
   if (!req.user) {
     res.status(401);
     next({ message: "You need to be logged in!" });
@@ -10,7 +9,6 @@ const requireUser = (req, res, next) => {
 
 const isAdmin = async (req, res, next) => {
   if (req.headers && req.headers.authorization) {
-    console.log(req.user, "USER")
     if (!req.user || !req.user.admin) {
       return res
         .status(403)

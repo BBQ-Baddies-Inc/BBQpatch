@@ -1,8 +1,14 @@
 const { client } = require("./client");
 
-
-async function createProduct({ name, price, category, photo, description, stock_data, main_Product_Photo }) {
-
+async function createProduct({
+  name,
+  price,
+  category,
+  photo,
+  description,
+  stock_data,
+  main_Product_Photo,
+}) {
   try {
     const { rows } = await client.query(
       `
@@ -10,7 +16,15 @@ async function createProduct({ name, price, category, photo, description, stock_
             VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING *;
         `,
-      [name, price, category, photo, description, stock_data, main_Product_Photo]
+      [
+        name,
+        price,
+        category,
+        photo,
+        description,
+        stock_data,
+        main_Product_Photo,
+      ]
     );
     return rows[0];
   } catch (error) {
@@ -28,7 +42,6 @@ async function getAllProducts() {
     throw error;
   }
 }
-
 
 async function getProductById(id) {
   try {
@@ -48,7 +61,7 @@ async function updateProduct({
   photo,
   description,
   stock_data,
-  id
+  id,
 }) {
   try {
     const {
@@ -83,11 +96,10 @@ async function removeProduct(id) {
   }
 }
 
-
 module.exports = {
   createProduct,
   getAllProducts,
   updateProduct,
   removeProduct,
-  getProductById
+  getProductById,
 };

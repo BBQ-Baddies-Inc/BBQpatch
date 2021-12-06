@@ -38,7 +38,7 @@ async function getUser({ username, password }) {
         `,
       [username]
     );
-    console.log("USER", user.password);
+    
     if (user.password !== password) {
       return;
     }
@@ -52,12 +52,12 @@ async function getUser({ username, password }) {
 
 async function getAllUsers() {
   try {
-    console.log("we got into here")
+    
     const { rows: user } = await client.query(`
         SELECT id, username, first_name, last_name, email, address, admin FROM users
         
         `);
-        console.log(user, "database!!")
+    
     return user;
   } catch (error) {
     throw error;

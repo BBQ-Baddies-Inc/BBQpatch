@@ -1,10 +1,8 @@
 const { client } = require("./client");
 
-
 async function addToCart({ productId, userId, quantity }) {
-    console.log(quantity)
   try {
-   let {
+    let {
       rows: [currentCart],
     } = await client.query(
       `
@@ -15,14 +13,17 @@ async function addToCart({ productId, userId, quantity }) {
       [userId]
     );
     if (!currentCart) {
-      const { rows } = await client.query(`
+      const { rows } = await client.query(
+        `
 INSERT INTO cart ("userId") 
 VALUES ($1)
 RETURNING *;
-`,[userId]);
-currentCart = rows[0]
+`,
+        [userId]
+      );
+      currentCart = rows[0];
     }
-    const {rows: product } = await client.query(
+    const { rows: product } = await client.query(
       `
         INSERT INTO cart_item("productId", "cartId", quantity)
         VALUES ($1, $2, $3)
@@ -31,10 +32,8 @@ currentCart = rows[0]
       [productId, currentCart.id, quantity]
     );
 
-    console.log(product);
     return product;
   } catch (error) {
-    console.log("error", error);
     throw error;
   }
 }
@@ -51,7 +50,7 @@ async function getCart(id) {
           `,
       [id]
     );
-    console.log(currentCart, "currentcart")
+
     const { rows } = await client.query(
       `
           SELECT * FROM cart_item
@@ -59,7 +58,7 @@ async function getCart(id) {
           WHERE "cartId" = $1`,
       [currentCart.id]
     );
-    console.log(rows, "hopefully cart");
+
     return rows;
   } catch (error) {
     throw error;
@@ -70,27 +69,25 @@ async function getCart(id) {
 
 //remove item
 async function destroyCartItem(productId, currentCart) {
-    console.log(currentCart, productId, "db before query")
-    try {
-      const {
-        rows: [deletedCart],
-      } = await client.query(
-        `DELETE 
+  try {
+    const {
+      rows: [deletedCart],
+    } = await client.query(
+      `DELETE 
         FROM cart_item
         WHERE "productId"=$1 AND "cartId" =$2
         RETURNING *;`,
-        [productId, currentCart]
-      );
-      console.log(deletedCart, "hopefully cart");
-      return deletedCart;
-    } catch (error) {
-        console.log(error)
-      throw error;
-    }
+      [productId, currentCart]
+    );
+
+    return deletedCart;
+  } catch (error) {
+    throw error;
   }
+}
 
 module.exports = {
   addToCart,
   getCart,
-  destroyCartItem
+  destroyCartItem,
 };

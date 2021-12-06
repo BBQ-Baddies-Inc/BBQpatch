@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { getAllUsers } from "../api/users";
-import { Link, useHistory } from "react-router-dom";
-
-
 
 export default function Admin() {
   const [users, setUsers] = useState([]);
 
   const fetchAllUsers = async () => {
     const allUsers = await getAllUsers();
-    
+
     setUsers(allUsers);
   };
   useEffect(() => {
@@ -22,7 +19,6 @@ export default function Admin() {
       <ul>
         {users && users.length
           ? users.map((user) => {
-            console.log(users)
               const { id, username, first_name, last_name, email, address } =
                 user;
               return (

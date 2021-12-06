@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { registerUser } from "../api/users";
 import { storeToken, storeUserName, storeUserId } from "../auth";
+import { useHistory } from "react-router";
 
 export default function Register(props) {
   const {
@@ -18,7 +19,7 @@ export default function Register(props) {
   } = props;
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  let history = useHistory();
   return (
     <form
       className="login-form"
@@ -26,7 +27,6 @@ export default function Register(props) {
         event.preventDefault();
 
         try {
-          // console.log(userName, password, "passed in data_______");
           const results = await registerUser(
             userName,
             password,
@@ -37,16 +37,15 @@ export default function Register(props) {
           );
 
           storeToken(results.token);
-          console.log(results.user.id)
-          storeUserId(results.user.id)
+      
+          storeUserId(results.user.id);
           setIsLoggedIn(true);
           storeUserName(userName);
 
-          
-
           alert("You are registered!");
+          history.push("./products")
         } catch (error) {
-          console.log(error, "REGISTER");
+         
           setError("Account Already Registered");
         }
       }}
@@ -172,7 +171,7 @@ export default function Register(props) {
         </button>
       </div>
       <div className="registerUserName">{error}</div>
-      
+
       <div className="container-signin">
         <p>
           Already have an account? <a href="/login">Sign in</a>
