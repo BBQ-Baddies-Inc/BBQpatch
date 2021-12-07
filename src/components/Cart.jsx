@@ -35,7 +35,7 @@ export default function Cart(props) {
       
         <div className="flex-row">
         <div className="cart-title">Cart
-      <button
+      {cart && cart.length?<button
           className="buyNow-button"
           onClick={async (event) => {
             const course = window.confirm("Are you sure you wish to Purchase?");
@@ -45,7 +45,7 @@ export default function Cart(props) {
               history.push("./checkout");
             }
           }}
-        >Buy Now</button></div>
+        >Buy Now</button>:null}</div>
           <div className="overlap-group">
             <img
               className="vector"
