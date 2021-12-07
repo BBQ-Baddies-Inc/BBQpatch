@@ -7,4 +7,4 @@ export { default as Cart } from "./Cart";
 export { default as LandingScreen } from "./LandingScreen";
 export { default as MainProductPage } from "./MainProductPage";
 export { default as Checkout } from "./Checkout";
-export { default as Account } from "./Account";
+
