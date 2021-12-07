@@ -18,10 +18,7 @@ export default function Navbar(props) {
         <Link className="links" to="/cart">
           Cart
         </Link>
-
-        <Link className="links" to="/mybbq">
-          Account
-        </Link>
+        
         {isAdmin ? (
           <Link className="links" to="/admin">
             Admin

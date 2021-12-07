@@ -4,7 +4,6 @@ import { getToken } from "./auth";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  Account,
   Login,
   Register,
   Navbar,
@@ -79,9 +78,7 @@ const App = () => {
         <Route path="/admin">
           <Admin />
         </Route>
-        <Route path="/mybbq">
-          <Account />
-        </Route>
+        
         <Route path="/cart">
           <Cart setProductId={setProductId} />
         </Route>
